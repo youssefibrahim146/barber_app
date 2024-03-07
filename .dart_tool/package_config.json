@@ -68,6 +68,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "get",
+      "rootUri": "file:///C:/Users/DELL/AppData/Local/Pub/Cache/hosted/pub.dev/get-4.6.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///C:/Users/DELL/AppData/Local/Pub/Cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
@@ -158,7 +164,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-03-04T12:26:44.427611Z",
+  "generated": "2024-03-07T12:13:20.278408Z",
   "generator": "pub",
   "generatorVersion": "3.1.1"
 }

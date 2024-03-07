@@ -11,31 +11,34 @@ class InputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      keyboardType: TextInputType.emailAddress,
-      textAlign: TextAlign.center,
-      decoration: InputDecoration(
-        hintText: text,
-        hintStyle: fontHeavy20Petrol,
-        fillColor: AppColors().whiteColor,
-        filled: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25.sp),
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 8.h),
+      child: TextField(
+        keyboardType: TextInputType.emailAddress,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: text,
+          hintStyle: fontHeavy20Petrol,
+          fillColor: AppColors().whiteColor,
+          filled: true,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.sp),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.sp),
+            borderSide: const BorderSide(color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.sp),
+            borderSide: const BorderSide(color: Colors.transparent),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.sp),
+            borderSide: const BorderSide(color: Colors.transparent),
+          ),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25.sp),
-          borderSide: const BorderSide(color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25.sp),
-          borderSide: const BorderSide(color: Colors.transparent),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25.sp),
-          borderSide: const BorderSide(color: Colors.transparent),
-        ),
+        style: fontHeavy20Petrol,
       ),
-      style: fontHeavy20Petrol,
     );
   }
 }

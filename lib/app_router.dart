@@ -1,3 +1,4 @@
+import 'package:barber/view/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'constants/strings.dart';
@@ -9,6 +10,10 @@ class AppRouter {
       case loginScreen:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),
+        );
+      case signupScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SignupScreen(),
         );
     }
   }
