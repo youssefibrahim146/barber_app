@@ -60,7 +60,9 @@ class LoginScreen extends StatelessWidget {
                       const SpaceTap(size: 21),
                       SubmitButton(
                         text: "Login",
-                        onTap: () {},
+                        onTap: () {
+                          Get.offNamed(homeScreen);
+                        },
                       ),
                       const SpaceTap(size: 19),
                       OnTapText(

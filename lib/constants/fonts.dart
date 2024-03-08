@@ -23,3 +23,13 @@ TextStyle fontHeavy16White = TextStyle(
   fontSize: 16.sp,
   color: AppColors().whiteColor,
 );
+TextStyle fontHeavy17black = TextStyle(
+  fontWeight: FontWeight.w700,
+  fontSize: 17.sp,
+  color: Colors.black,
+);
+TextStyle fontLight14grey = TextStyle(
+  fontWeight: FontWeight.w300,
+  fontSize: 14.sp,
+  color: AppColors().lightGreyColor,
+);
