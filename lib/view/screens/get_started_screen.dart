@@ -1,9 +1,4 @@
-import 'package:barber/constants/app_colors.dart';
-import 'package:barber/constants/fonts.dart';
-import 'package:barber/constants/strings.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import '../../constants/app_imports.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({super.key});
@@ -11,7 +6,7 @@ class GetStartedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors().petrolColor,
+      backgroundColor: AppColors.petrolColor,
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 50.sp, horizontal: 45.sp),
         width: double.infinity,
@@ -32,17 +27,20 @@ class GetStartedScreen extends StatelessWidget {
               style: fontHeavy25White,
               textAlign: TextAlign.center,
             ),
-            Text(
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-              style: fontHeavy16White.copyWith(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w400,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12.sp),
+              child: Text(
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                style: fontHeavy16White.copyWith(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
             TextButton(
               onPressed: () {
-                Get.offNamed(loginScreen);
+                Get.offNamed(AppStrings.loginScreenRoute);
               },
               child: Container(
                 padding:

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../constants/fonts.dart';
-import '../../helpers/app_space.dart';
+import '../../constants/app_imports.dart';
 
 class SwitchAuthText extends StatelessWidget {
   final VoidCallback onTap;
