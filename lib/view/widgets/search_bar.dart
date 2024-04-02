@@ -1,7 +1,4 @@
-import 'package:barber/constants/app_colors.dart';
-import 'package:barber/constants/fonts.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../constants/app_imports.dart';
 
 class HomeSearchBar extends StatelessWidget {
   const HomeSearchBar({super.key});
@@ -18,7 +15,7 @@ class HomeSearchBar extends StatelessWidget {
           padding: EdgeInsets.all(14.h),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.sp),
-            color: AppColors().petrolColor,
+            color: AppColors.petrolColor,
           ),
           child: Icon(
             Icons.search,
@@ -31,15 +28,15 @@ class HomeSearchBar extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.sp),
-          borderSide: BorderSide(color: AppColors().lightGreyColor),
+          borderSide: BorderSide(color: AppColors.lightGreyColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.sp),
-          borderSide: BorderSide(color: AppColors().lightGreyColor),
+          borderSide: BorderSide(color: AppColors.lightGreyColor),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.sp),
-          borderSide: BorderSide(color: AppColors().lightGreyColor),
+          borderSide: BorderSide(color: AppColors.lightGreyColor),
         ),
       ),
     );

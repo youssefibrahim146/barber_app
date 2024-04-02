@@ -1,19 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-
-import 'app_router.dart';
+import 'constants/app_imports.dart';
 
 void main() {
   // to fix text in release mode
   ScreenUtil.ensureScreenSize();
-  runApp(MyApp(appRouter: AppRouter()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.appRouter});
-
-  final AppRouter appRouter;
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +15,8 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 800),
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
+        getPages: AppRouter.appPages,
         title: 'barber App',
-        onGenerateRoute: appRouter.generateRoute,
       ),
     );
   }

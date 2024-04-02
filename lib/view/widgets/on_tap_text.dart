@@ -1,6 +1,4 @@
-import 'package:barber/constants/fonts.dart';
-import 'package:barber/helpers/app_space.dart';
-import 'package:flutter/material.dart';
+import '../../constants/app_imports.dart';
 
 class OnTapText extends StatelessWidget {
   final VoidCallback onTap;

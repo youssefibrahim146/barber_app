@@ -1,7 +1,4 @@
-import 'package:barber/constants/app_colors.dart';
-import 'package:barber/constants/fonts.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../constants/app_imports.dart';
 
 class InputField extends StatelessWidget {
   final String text;
@@ -19,7 +16,7 @@ class InputField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: text,
           hintStyle: fontHeavy20Petrol,
-          fillColor: AppColors().whiteColor,
+          fillColor: AppColors.whiteColor,
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.sp),

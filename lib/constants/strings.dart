@@ -1,4 +1,7 @@
-const String getStartedScreen = '/';
-const String loginScreen = '/loginscreen';
-const String signupScreen = "/signupScreen";
-const String homeScreen = "/homeScreen";
+class AppStrings {
+  /// Routes
+  static String getStartedRoute = '/';
+  static String loginScreenRoute = '/loginscreen';
+  static String signupScreenRoute = "/signupScreen";
+  static String homeScreenRoute = "/homeScreen";
+}

@@ -1,15 +1,4 @@
-import 'package:barber/constants/fonts.dart';
-import 'package:barber/constants/strings.dart';
-import 'package:barber/helpers/app_space.dart';
-import 'package:barber/view/widgets/input_field.dart';
-import 'package:barber/view/widgets/on_tap_text.dart';
-import 'package:barber/view/widgets/submit_button.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-
-import '../../constants/app_colors.dart';
-import '../widgets/switch_auth_screen_text.dart';
+import '../../constants/app_imports.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -36,7 +25,7 @@ class SignupScreen extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 33.h),
                 decoration: BoxDecoration(
-                  color: AppColors().petrolColor,
+                  color: AppColors.petrolColor,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30.sp),
                     topRight: Radius.circular(30.sp),
@@ -54,7 +43,7 @@ class SignupScreen extends StatelessWidget {
                     const SpaceTap(size: 20),
                     SwitchAuthText(
                         onTap: () {
-                          Get.offNamed(loginScreen);
+                          Get.offNamed(AppStrings.loginScreenRoute);
                         },
                         text1: "Already a User?",
                         text2: "Login"),
