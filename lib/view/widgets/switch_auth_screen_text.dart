@@ -1,14 +1,15 @@
-import '../../constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
 
 class SwitchAuthText extends StatelessWidget {
   final VoidCallback onTap;
   final String text1, text2;
 
-  const SwitchAuthText(
-      {super.key,
-      required this.onTap,
-      required this.text1,
-      required this.text2});
+  const SwitchAuthText({
+    super.key,
+    required this.onTap,
+    required this.text1,
+    required this.text2,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +18,16 @@ class SwitchAuthText extends StatelessWidget {
       children: [
         Text(
           text1,
-          style: fontHeavy16White.copyWith(fontWeight: FontWeight.w400),
+          style: AppFonts.fontHeavy16White.copyWith(
+            fontWeight: FontWeight.w400,
+          ),
         ),
-        const SpaceTap(size: 8),
+        const GapWidget(8),
         InkWell(
           onTap: onTap,
           child: Text(
             text2,
-            style: fontHeavy16White,
+            style: AppFonts.fontHeavy16White,
           ),
         )
       ],

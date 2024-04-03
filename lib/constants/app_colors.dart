@@ -1,7 +1,8 @@
 import 'package:barber/constants/app_imports.dart';
 
 class AppColors {
-  static Color whiteColor = const Color(0xffffffff);
-  static Color petrolColor = const Color.fromRGBO(128, 147, 150, 1);
-  static Color lightGreyColor = const Color.fromRGBO(101, 101, 101, 1);
+  static Color lightGrey = const Color(0xFF656565);
+  static Color petrol = const Color(0xFF809396);
+  static Color black = const Color(0xFF000000);
+  static Color white = const Color(0xFFFFFFFF);
 }

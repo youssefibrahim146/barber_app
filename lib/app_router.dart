@@ -1,15 +1,23 @@
-import 'constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
+import 'package:barber/view/screens/barber_details_screen.dart';
+import 'package:barber/view/screens/phone_signup_screen.dart';
+import 'package:barber/view/screens/sms_code_screen.dart';
 
 class AppRouter {
   static List<GetPage> appPages = [
     GetPage(
-      name: AppStrings.getStartedRoute,
-      page: () => const GetStartedScreen(),
+      name: AppStrings.barberDetailsRoute,
+      page: () => const BarberDetailsScreen(),
       transition: Transition.noTransition,
     ),
     GetPage(
-      name: AppStrings.loginScreenRoute,
-      page: () => const LoginScreen(),
+      name: AppStrings.phoneSignupRoute,
+      page: () => const PhoneSignupScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: AppStrings.getStartedRoute,
+      page: () => const GetStartedScreen(),
       transition: Transition.noTransition,
     ),
     GetPage(
@@ -18,7 +26,17 @@ class AppRouter {
       transition: Transition.noTransition,
     ),
     GetPage(
-      name: AppStrings.homeScreenRoute,
+      name: AppStrings.loginScreenRoute,
+      page: () => const LoginScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: AppStrings.sMSCodeRoute,
+      page: () => const SMSCodeScreen(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: AppStrings.homeRoute,
       page: () => const HomeScreen(),
       transition: Transition.noTransition,
     ),

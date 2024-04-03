@@ -1,13 +1,15 @@
-import '../../constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
 
-class HomeSearchBar extends StatelessWidget {
-  const HomeSearchBar({super.key});
+class HomeSearchBarWidget extends StatelessWidget {
+  const HomeSearchBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      style:
-          fontLight14grey.copyWith(fontSize: 17, fontWeight: FontWeight.w400),
+      style: AppFonts.fontLight14grey.copyWith(
+        fontSize: 17,
+        fontWeight: FontWeight.w400,
+      ),
       decoration: InputDecoration(
         hintText: "Search Here ...",
         prefixIcon: Container(
@@ -15,7 +17,7 @@ class HomeSearchBar extends StatelessWidget {
           padding: EdgeInsets.all(14.h),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.sp),
-            color: AppColors.petrolColor,
+            color: AppColors.petrol,
           ),
           child: Icon(
             Icons.search,
@@ -28,15 +30,21 @@ class HomeSearchBar extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.sp),
-          borderSide: BorderSide(color: AppColors.lightGreyColor),
+          borderSide: BorderSide(
+            color: AppColors.lightGrey,
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.sp),
-          borderSide: BorderSide(color: AppColors.lightGreyColor),
+          borderSide: BorderSide(
+            color: AppColors.lightGrey,
+          ),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.sp),
-          borderSide: BorderSide(color: AppColors.lightGreyColor),
+          borderSide: BorderSide(
+            color: AppColors.lightGrey,
+          ),
         ),
       ),
     );

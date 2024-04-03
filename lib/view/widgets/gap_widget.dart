@@ -1,9 +1,9 @@
-import '../constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
 
-class SpaceTap extends StatelessWidget {
+class GapWidget extends StatelessWidget {
   final double size;
 
-  const SpaceTap({super.key, required this.size});
+  const GapWidget(this.size, {super.key});
 
   @override
   Widget build(BuildContext context) {
