@@ -1,60 +1,68 @@
 import 'package:barber/constants/app_imports.dart';
 
-class GetStartedScreen extends StatelessWidget {
+class GetStartedScreen extends GetWidget<GetStartedController> {
   const GetStartedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.petrol,
-      body: Container(
-        padding: EdgeInsets.symmetric(vertical: 50.sp, horizontal: 45.sp),
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Hero(
-              tag: "auth",
-              child: Image.asset(
-                "assets/icons/barber logo.png",
-                width: 360.w,
-                height: 272.h,
-              ),
-            ),
-            Text(
-              "Book Your Schedule\nWith Your favorite\nBarber",
-              style: AppFonts.fontHeavy25White,
-              textAlign: TextAlign.center,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.sp),
-              child: Text(
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                style: AppFonts.fontHeavy16White.copyWith(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w400,
+      body: Hero(
+        tag: AppStrings.containerTag,
+        child: Card(
+          elevation: 0.sp,
+          margin: EdgeInsets.all(0.sp),
+          color: AppColors.transparent,
+          child: Container(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  AppStrings.logoAsset,
+                  width: 360.w,
+                  height: 272.h,
                 ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Get.offNamed(AppStrings.loginScreenRoute);
-              },
-              child: Container(
-                padding: EdgeInsets.symmetric(vertical: 15.sp, horizontal: 35.sp),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.sp),
-                  color: const Color.fromRGBO(217, 217, 217, 1),
+                Text(
+                  AppStrings.getStatedTitle,
+                  style: AppFonts.fontHeavy25White,
+                  textAlign: TextAlign.center,
                 ),
-                child: Text(
-                  "Get Started",
-                  style: AppFonts.fontHeavy17black.copyWith(fontSize: 22.sp),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 40.sp,
+                  ),
+                  child: Text(
+                    AppStrings.getStatedSubTitle,
+                    style: AppFonts.fontHeavy16White.copyWith(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
+                InkWell(
+                  onTap: controller.getStartedOnClick,
+                  child: Card(
+                    elevation: 10.sp,
+                    child: SizedBox(
+                      height: 45.h,
+                      width: 150.w,
+                      child: Center(
+                        child: Text(
+                          AppStrings.getStartedText,
+                          style: AppFonts.fontHeavy17black.copyWith(
+                            fontSize: 22.sp,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

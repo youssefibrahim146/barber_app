@@ -9,36 +9,57 @@ class AppRouter {
       name: AppStrings.barberDetailsRoute,
       page: () => const BarberDetailsScreen(),
       transition: Transition.noTransition,
+      transitionDuration: Duration(
+        milliseconds: 500,
+      ),
     ),
     GetPage(
       name: AppStrings.phoneSignupRoute,
       page: () => const PhoneSignupScreen(),
       transition: Transition.noTransition,
+      transitionDuration: Duration(
+        milliseconds: 500,
+      ),
     ),
     GetPage(
       name: AppStrings.getStartedRoute,
       page: () => const GetStartedScreen(),
       transition: Transition.noTransition,
+      transitionDuration: Duration(
+        milliseconds: 500,
+      ),
     ),
     GetPage(
       name: AppStrings.signupScreenRoute,
       page: () => const SignupScreen(),
       transition: Transition.noTransition,
+      transitionDuration: Duration(
+        milliseconds: 2500,
+      ),
     ),
     GetPage(
       name: AppStrings.loginScreenRoute,
       page: () => const LoginScreen(),
       transition: Transition.noTransition,
+      transitionDuration: Duration(
+        milliseconds: 2500,
+      ),
     ),
     GetPage(
       name: AppStrings.sMSCodeRoute,
       page: () => const SMSCodeScreen(),
       transition: Transition.noTransition,
+      transitionDuration: Duration(
+        milliseconds: 500,
+      ),
     ),
     GetPage(
       name: AppStrings.homeRoute,
       page: () => const HomeScreen(),
       transition: Transition.noTransition,
+      transitionDuration: Duration(
+        milliseconds: 500,
+      ),
     ),
   ];
 }
