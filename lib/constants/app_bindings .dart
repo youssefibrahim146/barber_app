@@ -12,6 +12,10 @@ class AppBindings extends Bindings {
       fenix: true,
     );
     Get.lazyPut(
+      () => GetStartedController(),
+      fenix: true,
+    );
+    Get.lazyPut(
       () => SMSCodeController(),
       fenix: true,
     );

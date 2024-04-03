@@ -9,48 +9,101 @@ class SignupScreen extends GetWidget<SignupController> {
       body: Container(
         padding: EdgeInsets.only(top: 30.sp),
         child: SingleChildScrollView(
+          physics: MediaQuery.of(context).viewInsets.bottom > 0 ? const ClampingScrollPhysics() : const NeverScrollableScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("SignUP", style: AppFonts.fontHeavy40Petrol),
-              const GapWidget(23),
               Hero(
-                tag: "auth",
-                child: Image.asset(
-                  "assets/images/signupImage.png",
-                  width: 295.sp,
-                  height: 206.sp,
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 33.h),
-                decoration: BoxDecoration(
-                  color: AppColors.petrol,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.sp),
-                    topRight: Radius.circular(30.sp),
+                tag: AppStrings.textTag,
+                child: Card(
+                  elevation: 0.sp,
+                  margin: EdgeInsets.all(0.sp),
+                  color: AppColors.transparent,
+                  child: SizedBox(
+                    width: 150.sp,
+                    child: Center(
+                      child: Text(
+                        AppStrings.signupText,
+                        style: AppFonts.fontHeavy40Petrol,
+                      ),
+                    ),
                   ),
                 ),
-                child: Column(
-                  children: [
-                    const InputFieldWidget(text: "First Name", isObscure: false),
-                    const InputFieldWidget(text: "Last Name", isObscure: false),
-                    const InputFieldWidget(text: "Email", isObscure: false),
-                    const InputFieldWidget(text: "Password", isObscure: true),
-                    SubmitButton(onTap: () {}, text: "SignUp"),
-                    const GapWidget(22),
-                    OnTapTextWidget(onTap: () {}, text: "SignUP with Phone Number"),
-                    const GapWidget(20),
-                    SwitchAuthText(
-                        onTap: () {
-                          Get.offNamed(AppStrings.loginScreenRoute);
-                        },
-                        text1: "Already a User?",
-                        text2: "Login"),
-                    const GapWidget(22),
-                  ],
+              ),
+              const GapWidget(23),
+              Hero(
+                tag: AppStrings.imageTag,
+                child: Card(
+                  elevation: 0.sp,
+                  margin: EdgeInsets.all(0.sp),
+                  color: AppColors.transparent,
+                  child: Image.asset(
+                    AppStrings.signupAsset,
+                    width: 295.sp,
+                    height: 206.sp,
+                  ),
                 ),
-              )
+              ),
+              Hero(
+                tag: AppStrings.containerTag,
+                child: Card(
+                  elevation: 0.sp,
+                  margin: EdgeInsets.all(0.sp),
+                  color: AppColors.transparent,
+                  child: Container(
+                    height: 500.h,
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10.w,
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.petrol,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30.sp),
+                        topRight: Radius.circular(30.sp),
+                      ),
+                    ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const InputFieldWidget(
+                            text: AppStrings.firstNameText,
+                            isObscure: false,
+                          ),
+                          const InputFieldWidget(
+                            text: AppStrings.lastNameText,
+                            isObscure: false,
+                          ),
+                          InputFieldWidget(
+                            text: AppStrings.emailText,
+                            isObscure: false,
+                          ),
+                          const InputFieldWidget(
+                            text: AppStrings.passwordText,
+                            isObscure: true,
+                          ),
+                          SubmitButton(
+                            onTap: controller.signupButtonOnClick,
+                            text: AppStrings.signupText,
+                          ),
+                          const GapWidget(20),
+                          OnTapTextWidget(
+                            onTap: controller.signupWithPhoneNumberTextOnClick,
+                            text: AppStrings.signupWithPhoneNumberText,
+                          ),
+                          const GapWidget(10),
+                          SwitchAuthText(
+                            onTap: controller.loginTextOnClick,
+                            text1: AppStrings.alreadyUserText,
+                            text2: AppStrings.loginText,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

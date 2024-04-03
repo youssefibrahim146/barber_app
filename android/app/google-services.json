@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "666827595467",
+    "project_id": "baeber-app",
+    "storage_bucket": "baeber-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666827595467:android:89b60d29b929fc98c5854e",
+        "android_client_info": {
+          "package_name": "com.example.barber"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUUzngHnx8w8jwpxrwAKqh-t8sHld0mdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

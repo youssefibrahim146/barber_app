@@ -12,24 +12,27 @@ class SubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.petrol,
-          border: Border.all(
+    return InkWell(
+      onTap: onTap,
+      child: Card(
+        elevation: 10.sp,
+        color: AppColors.petrol,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(35.sp),
+          side: BorderSide(
             color: AppColors.white,
             width: 4.sp,
           ),
-          borderRadius: BorderRadius.circular(35.sp),
         ),
-        padding: EdgeInsets.symmetric(
-          horizontal: 80.w,
-          vertical: 15.h,
-        ),
-        child: Text(
-          text,
-          style: AppFonts.fontHeavy25White,
+        child: SizedBox(
+          height: 60.h,
+          width: 200.w,
+          child: Center(
+            child: Text(
+              text,
+              style: AppFonts.fontHeavy25White,
+            ),
+          ),
         ),
       ),
     );

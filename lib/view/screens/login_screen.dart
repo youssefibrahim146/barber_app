@@ -8,68 +8,99 @@ class LoginScreen extends GetWidget<LoginController> {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
+          physics: MediaQuery.of(context).viewInsets.bottom > 0 ? const ClampingScrollPhysics() : const NeverScrollableScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 82.h),
-                child: Text("Login", style: AppFonts.fontHeavy40Petrol),
+                child: Hero(
+                  tag: AppStrings.textTag,
+                  child: Card(
+                    elevation: 0.sp,
+                    margin: EdgeInsets.all(0.sp),
+                    color: AppColors.transparent,
+                    child: SizedBox(
+                      width: 150.sp,
+                      child: Center(
+                        child: Text(
+                          AppStrings.loginText,
+                          style: AppFonts.fontHeavy40Petrol,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
               const GapWidget(28),
               Hero(
-                tag: "auth",
-                child: Image.asset(
-                  "assets/images/login-logo.png",
-                  width: 311.sp,
-                  height: 228.sp,
+                tag: AppStrings.imageTag,
+                child: Card(
+                  elevation: 0.sp,
+                  margin: EdgeInsets.all(0.sp),
+                  color: AppColors.transparent,
+                  child: Image.asset(
+                    AppStrings.loginAsset,
+                    width: 311.sp,
+                    height: 228.sp,
+                  ),
                 ),
               ),
               const GapWidget(50),
-              Container(
-                padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 33.h),
-                decoration: BoxDecoration(
-                  color: AppColors.petrol,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.sp),
-                    topRight: Radius.circular(30.sp),
+              Hero(
+                tag: AppStrings.containerTag,
+                child: Card(
+                  elevation: 0.sp,
+                  margin: EdgeInsets.all(0.sp),
+                  color: AppColors.transparent,
+                  child: Container(
+                    height: 400.h,
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10.w,
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.petrol,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(30.sp),
+                      ),
+                    ),
+                    child: Form(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const InputFieldWidget(
+                              text: AppStrings.emailText,
+                              isObscure: false,
+                            ),
+                            const InputFieldWidget(
+                              text: AppStrings.passwordText,
+                              isObscure: true,
+                            ),
+                            SubmitButton(
+                              text: AppStrings.loginText,
+                              onTap: controller.loginButtonOnClick,
+                            ),
+                            const GapWidget(20),
+                            OnTapTextWidget(
+                              onTap: controller.loginWithPhoneNumberTextOnClick,
+                              text: AppStrings.loginWithPhoneNumberText,
+                            ),
+                            const GapWidget(10),
+                            SwitchAuthText(
+                              onTap: controller.signupTextOnClick,
+                              text1: AppStrings.notUserText,
+                              text2: AppStrings.signupText,
+                            ),
+                            const GapWidget(22),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                child: Form(
-                  child: Column(
-                    children: [
-                      const InputFieldWidget(
-                        text: "Email",
-                        isObscure: false,
-                      ),
-                      const GapWidget(10),
-                      const InputFieldWidget(
-                        text: "Password",
-                        isObscure: true,
-                      ),
-                      const GapWidget(21),
-                      SubmitButton(
-                        text: "Login",
-                        onTap: () {
-                          Get.offNamed(AppStrings.homeRoute);
-                        },
-                      ),
-                      const GapWidget(19),
-                      OnTapTextWidget(
-                        onTap: () {},
-                        text: "Login with Phone Number",
-                      ),
-                      const GapWidget(20),
-                      SwitchAuthText(
-                          onTap: () {
-                            Get.offNamed(AppStrings.signupScreenRoute);
-                          },
-                          text1: "Not a User yet?",
-                          text2: "Signup"),
-                      const GapWidget(22),
-                    ],
-                  ),
-                ),
-              )
+              ),
             ],
           ),
         ),
