@@ -1,29 +1,29 @@
-import '../../constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends GetWidget<HomeController> {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.whiteColor,
+      backgroundColor: AppColors.white,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.sp),
         child: Column(
           children: [
-            const HomeAppBar(),
-            const SpaceTap(size: 40),
+            const HomeAppBarWidget(),
+            const GapWidget(40),
             Row(
               children: [
                 const Expanded(
-                  child: HomeSearchBar(),
+                  child: HomeSearchBarWidget(),
                 ),
-                const SpaceTap(size: 21),
+                const GapWidget(21),
                 Container(
                   padding: EdgeInsets.all(14.h),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30.sp),
-                    color: AppColors.petrolColor,
+                    color: AppColors.petrol,
                   ),
                   child: Icon(
                     Icons.location_on_outlined,
@@ -33,13 +33,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const SpaceTap(size: 29),
+            const GapWidget(29),
             Divider(
-              color: AppColors.petrolColor,
+              color: AppColors.petrol,
               thickness: 5.sp,
             ),
-            const SpaceTap(size: 24),
-            const BarberCard(),
+            const GapWidget(24),
+            const BarberCardWidget(),
           ],
         ),
       ),

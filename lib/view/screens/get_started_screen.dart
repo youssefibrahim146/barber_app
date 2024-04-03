@@ -1,4 +1,4 @@
-import '../../constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({super.key});
@@ -6,7 +6,7 @@ class GetStartedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.petrolColor,
+      backgroundColor: AppColors.petrol,
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 50.sp, horizontal: 45.sp),
         width: double.infinity,
@@ -24,14 +24,14 @@ class GetStartedScreen extends StatelessWidget {
             ),
             Text(
               "Book Your Schedule\nWith Your favorite\nBarber",
-              style: fontHeavy25White,
+              style: AppFonts.fontHeavy25White,
               textAlign: TextAlign.center,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 12.sp),
               child: Text(
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                style: fontHeavy16White.copyWith(
+                style: AppFonts.fontHeavy16White.copyWith(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w400,
                 ),
@@ -43,15 +43,14 @@ class GetStartedScreen extends StatelessWidget {
                 Get.offNamed(AppStrings.loginScreenRoute);
               },
               child: Container(
-                padding:
-                    EdgeInsets.symmetric(vertical: 15.sp, horizontal: 35.sp),
+                padding: EdgeInsets.symmetric(vertical: 15.sp, horizontal: 35.sp),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.sp),
                   color: const Color.fromRGBO(217, 217, 217, 1),
                 ),
                 child: Text(
                   "Get Started",
-                  style: fontHeavy17black.copyWith(fontSize: 22.sp),
+                  style: AppFonts.fontHeavy17black.copyWith(fontSize: 22.sp),
                 ),
               ),
             ),

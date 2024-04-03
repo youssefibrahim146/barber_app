@@ -1,7 +1,7 @@
-import '../../constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
 
-class BarberCard extends StatelessWidget {
-  const BarberCard({super.key});
+class BarberCardWidget extends StatelessWidget {
+  const BarberCardWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class BarberCard extends StatelessWidget {
       width: 325.w,
       height: 174.h,
       decoration: BoxDecoration(
-        color: AppColors.whiteColor,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20.sp),
         boxShadow: [
           BoxShadow(
@@ -38,7 +38,7 @@ class BarberCard extends StatelessWidget {
                 children: [
                   Text(
                     "Beky Barber shop",
-                    style: fontHeavy17black,
+                    style: AppFonts.fontHeavy17black,
                   ),
                 ],
               ),

@@ -1,10 +1,14 @@
-import '../../constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
 
-class InputField extends StatelessWidget {
+class InputFieldWidget extends StatelessWidget {
   final String text;
   final bool isObscure;
 
-  const InputField({super.key, required this.text, required this.isObscure});
+  const InputFieldWidget({
+    super.key,
+    required this.text,
+    required this.isObscure,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,26 +19,32 @@ class InputField extends StatelessWidget {
         textAlign: TextAlign.center,
         decoration: InputDecoration(
           hintText: text,
-          hintStyle: fontHeavy20Petrol,
-          fillColor: AppColors.whiteColor,
+          hintStyle: AppFonts.fontHeavy20Petrol,
+          fillColor: AppColors.white,
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.sp),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.sp),
-            borderSide: const BorderSide(color: Colors.transparent),
+            borderSide: const BorderSide(
+              color: Colors.transparent,
+            ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.sp),
-            borderSide: const BorderSide(color: Colors.transparent),
+            borderSide: const BorderSide(
+              color: Colors.transparent,
+            ),
           ),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.sp),
-            borderSide: const BorderSide(color: Colors.transparent),
+            borderSide: const BorderSide(
+              color: Colors.transparent,
+            ),
           ),
         ),
-        style: fontHeavy20Petrol,
+        style: AppFonts.fontHeavy20Petrol,
       ),
     );
   }

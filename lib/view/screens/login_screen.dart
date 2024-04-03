@@ -1,6 +1,6 @@
-import '../../constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetWidget<LoginController> {
   const LoginScreen({super.key});
 
   @override
@@ -13,9 +13,9 @@ class LoginScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 82.h),
-                child: Text("Login", style: fontHeavy40Petrol),
+                child: Text("Login", style: AppFonts.fontHeavy40Petrol),
               ),
-              const SpaceTap(size: 28),
+              const GapWidget(28),
               Hero(
                 tag: "auth",
                 child: Image.asset(
@@ -24,11 +24,11 @@ class LoginScreen extends StatelessWidget {
                   height: 228.sp,
                 ),
               ),
-              const SpaceTap(size: 50),
+              const GapWidget(50),
               Container(
                 padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 33.h),
                 decoration: BoxDecoration(
-                  color: AppColors.petrolColor,
+                  color: AppColors.petrol,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30.sp),
                     topRight: Radius.circular(30.sp),
@@ -37,35 +37,35 @@ class LoginScreen extends StatelessWidget {
                 child: Form(
                   child: Column(
                     children: [
-                      const InputField(
+                      const InputFieldWidget(
                         text: "Email",
                         isObscure: false,
                       ),
-                      const SpaceTap(size: 10),
-                      const InputField(
+                      const GapWidget(10),
+                      const InputFieldWidget(
                         text: "Password",
                         isObscure: true,
                       ),
-                      const SpaceTap(size: 21),
+                      const GapWidget(21),
                       SubmitButton(
                         text: "Login",
                         onTap: () {
-                          Get.offNamed(AppStrings.homeScreenRoute);
+                          Get.offNamed(AppStrings.homeRoute);
                         },
                       ),
-                      const SpaceTap(size: 19),
-                      OnTapText(
+                      const GapWidget(19),
+                      OnTapTextWidget(
                         onTap: () {},
                         text: "Login with Phone Number",
                       ),
-                      const SpaceTap(size: 20),
+                      const GapWidget(20),
                       SwitchAuthText(
                           onTap: () {
                             Get.offNamed(AppStrings.signupScreenRoute);
                           },
                           text1: "Not a User yet?",
                           text2: "Signup"),
-                      const SpaceTap(size: 22),
+                      const GapWidget(22),
                     ],
                   ),
                 ),

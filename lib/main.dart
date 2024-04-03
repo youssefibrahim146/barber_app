@@ -1,9 +1,11 @@
-import 'constants/app_imports.dart';
+import 'package:barber/constants/app_imports.dart';
 
 void main() {
-  // to fix text in release mode
+  /// to fix text in release mode
   ScreenUtil.ensureScreenSize();
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         getPages: AppRouter.appPages,
-        title: 'barber App',
+        title: AppStrings.appTitle,
       ),
     );
   }
