@@ -9,6 +9,7 @@ class SignupController extends GetxController {
   RxBool isObscure = true.obs;
   String? userName, emailAddress, password;
 
+  /// Pick user profile image from the phone gallery
   void pickImage() async {
     final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
@@ -16,6 +17,7 @@ class SignupController extends GetxController {
     }
   }
 
+  /// Validate on the user data before signup to make sure that the data is valid.
   signUpValidator() async {
     FocusManager.instance.primaryFocus?.unfocus();
     var formData = formState.currentState;
@@ -68,11 +70,12 @@ class SignupController extends GetxController {
     }
   }
 
+  /// Upload the user profile image on profileImages/user_email_formatted_profile_image.jpg fire storage and return the image URL.
   Future<String?> uploadUserImage(String emailAddress, Rx<File?> image) async {
     try {
       if (image.value != null) {
         String formattedEmail = AppFormats.myFormatter(emailAddress, AppStrings.underscoreSign);
-        final storageReference = FirebaseStorage.instance.ref().child(AppStrings.profileImagesBase + AppStrings.backSlashSign + formattedEmail + AppStrings.profileImageNameEndBase);
+        final storageReference = FirebaseStorage.instance.ref().child(AppStrings.profileImagesBase + formattedEmail + AppStrings.profileImageNameEndBase);
         final UploadTask uploadTask = storageReference.putFile(
           image.value!,
           SettableMetadata(
@@ -90,6 +93,7 @@ class SignupController extends GetxController {
     }
   }
 
+  /// Go to login screen if the signup operation is successful.
   void signupButtonOnClick() async {
     UserCredential res = await signUpValidator();
     if (res != null) {
@@ -97,12 +101,15 @@ class SignupController extends GetxController {
     }
   }
 
-  void obscureOnClick() {
+  /// Change the password field text obscure by the Eye icon button.
+  void passwordObscureOnClick() {
     isObscure.value = !isObscure.value;
   }
 
+  /// Go to signup with phone number screen from signup screen by the Signup With Phone Number text button.
   void signupWithPhoneNumberTextOnClick() {}
 
+  /// Go to login screen from signup screen by the Login text button.
   void loginTextOnClick() {
     Get.offNamed(AppStrings.loginRoute);
   }

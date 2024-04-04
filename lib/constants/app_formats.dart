@@ -1,6 +1,7 @@
 import 'package:barber/constants/app_imports.dart';
 
 class AppFormats {
+  /// To format all the firebase messages by replacing any sign to space.
   static String myFormatter(text, replaced) {
     List<String> symbolsToReplace = [
       AppStrings.openingSquareBracketSign,
@@ -28,6 +29,7 @@ class AppFormats {
     return text.replaceAll(AppStrings.twoSpacesSign, AppStrings.wordsSeparatorSign);
   }
 
+  /// To format the phone number from '01000845943' to '+20 100 084 5943'.
   static String formatPhoneNumber(phoneNumber) {
     String formattedPhoneNumber = phoneNumber.replaceAll(RegExp(r'[^0-9]'), AppStrings.emptySign);
     if (formattedPhoneNumber.length == 11) {

@@ -108,7 +108,7 @@ class LoginScreen extends GetWidget<LoginController> {
                                   obscure: controller.isObscure.value,
                                   textAlign: TextAlign.start,
                                   suffixIcon: InkWell(
-                                    onTap: controller.obscureOnClick,
+                                    onTap: controller.passwordObscureOnClick,
                                     child: Icon(
                                       controller.isObscure.value ? Icons.visibility_off_rounded : Icons.visibility_rounded,
                                       color: AppColors.petrol,
