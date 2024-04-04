@@ -30,7 +30,7 @@ class AppRouter {
       ),
     ),
     GetPage(
-      name: AppStrings.signupScreenRoute,
+      name: AppStrings.signupRoute,
       page: () => const SignupScreen(),
       transition: Transition.noTransition,
       transitionDuration: Duration(
@@ -38,7 +38,7 @@ class AppRouter {
       ),
     ),
     GetPage(
-      name: AppStrings.loginScreenRoute,
+      name: AppStrings.loginRoute,
       page: () => const LoginScreen(),
       transition: Transition.noTransition,
       transitionDuration: Duration(

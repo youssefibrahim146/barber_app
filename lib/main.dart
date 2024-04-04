@@ -41,6 +41,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         initialBinding: AppBindings(),
+        initialRoute: FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser!.emailVerified ? AppStrings.homeRoute : AppStrings.getStartedRoute,
         getPages: AppRouter.appPages,
         title: AppStrings.appTitle,
       ),

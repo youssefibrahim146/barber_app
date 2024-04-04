@@ -8,10 +8,13 @@ class HomeScreen extends GetWidget<HomeController> {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.sp),
+        padding: EdgeInsets.symmetric(
+          horizontal: 20.w,
+          vertical: 40.sp,
+        ),
         child: Column(
           children: [
-            const HomeAppBarWidget(),
+            HomeAppBarWidget(controller),
             const GapWidget(40),
             Row(
               children: [

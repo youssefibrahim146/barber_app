@@ -65,21 +65,63 @@ class LoginScreen extends GetWidget<LoginController> {
                         top: Radius.circular(30.sp),
                       ),
                     ),
-                    child: Form(
-                      child: SingleChildScrollView(
+                    child: SingleChildScrollView(
+                      physics: const ClampingScrollPhysics(),
+                      child: Form(
+                        key: controller.formState,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            const InputFieldWidget(
-                              text: AppStrings.emailText,
-                              isObscure: false,
+                            const GapWidget(20),
+                            InputFieldWidget(
+                              onSaved: (value) {
+                                controller.emailAddress = value!;
+                              },
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return AppStrings.emailEmptyValidate;
+                                } else if (!value.contains(AppStrings.atSign)) {
+                                  return AppStrings.emailMessingAtSignValidate;
+                                }
+                                return null;
+                              },
+                              keyboardType: TextInputType.emailAddress,
+                              placeholder: AppStrings.emailText,
                             ),
-                            const InputFieldWidget(
-                              text: AppStrings.passwordText,
-                              isObscure: true,
+                            Obx(
+                              () {
+                                return InputFieldWidget(
+                                  onSaved: (value) {
+                                    controller.password = value!;
+                                  },
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return AppStrings.passwordEmptyValidate;
+                                    } else if (value.length < 8) {
+                                      return AppStrings.passwordLessThen8Validate;
+                                    } else if (value.length > 24) {
+                                      return AppStrings.passwordLargerThen24Validate;
+                                    }
+                                    return null;
+                                  },
+                                  placeholder: AppStrings.passwordText,
+                                  obscure: controller.isObscure.value,
+                                  textAlign: TextAlign.start,
+                                  suffixIcon: InkWell(
+                                    onTap: controller.obscureOnClick,
+                                    child: Icon(
+                                      controller.isObscure.value ? Icons.visibility_off_rounded : Icons.visibility_rounded,
+                                      color: AppColors.petrol,
+                                    ),
+                                  ),
+                                  keyboardType: TextInputType.visiblePassword,
+                                );
+                              },
                             ),
+                            GapWidget(10),
                             SubmitButton(
-                              text: AppStrings.loginText,
+                              AppStrings.loginText,
+                              isLoading: controller.isLoading,
                               onTap: controller.loginButtonOnClick,
                             ),
                             const GapWidget(20),
@@ -93,7 +135,7 @@ class LoginScreen extends GetWidget<LoginController> {
                               text1: AppStrings.notUserText,
                               text2: AppStrings.signupText,
                             ),
-                            const GapWidget(22),
+                            const GapWidget(20),
                           ],
                         ),
                       ),
