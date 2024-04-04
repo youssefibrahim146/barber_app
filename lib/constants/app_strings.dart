@@ -5,6 +5,7 @@ class AppStrings {
   /// Routes
   static const String forgotPasswordRouteRoute = "/forgotPassword";
   static const String barberDetailsRoute = "/barberDetails";
+  static const String userProfileRoute = "/userProfile";
   static const String phoneSignupRoute = "/phoneSignup";
   static const String sMSCodeRoute = "/smsCode";
   static const String signupRoute = "/signup";
@@ -92,7 +93,7 @@ class AppStrings {
   static const String atSign = "@";
   static const String orSign = "|";
 
-  // Toasts
+  /// Toasts
   static const String emailSentSuccessfullyToast = "Email sent successfully, please check your email to reset your password.";
   static const String yourEmailNotInOurDatabaseToast = "Your email is not in our database, Try to signup with that email.";
   static const String passwordChangedSuccessfullyToast = "Password changed successfully.";
@@ -117,7 +118,7 @@ class AppStrings {
   static const String errorFetchingToast = "Error fetching: ";
   static const String errorUpdatingToast = "Error updating: ";
 
-  // Validations
+  /// Validations
   static const String oldPasswordLargerThen24Validate = "Old password can't be larger then 24 letters";
   static const String newPasswordLargerThen24Validate = "New password can't be larger then 24 letters";
   static const String oldPasswordLessThen8Validate = " Old password can't be less then 8 letters";
@@ -139,6 +140,7 @@ class AppStrings {
 
   /// Hero tags
   static const String containerTag = "container";
+  static const String appBarTag = "appBar";
   static const String imageTag = "image";
   static const String textTag = "text";
 
@@ -154,17 +156,25 @@ class AppStrings {
   /// Other
   static const String signupWithPhoneNumberText = "Signup with Phone Number";
   static const String loginWithPhoneNumberText = "Login with Phone Number";
+  static const String accountSettingText = "Account Setting";
+  static const String changePasswordText = "Change Password";
+  static const String deleteAccountText = "Delete Account";
   static const String alreadyUserText = "Already a User?";
+  static const String notAvailableText = "Not Available";
+  static const String reservationsText = "Reservations";
+  static const String editProfileText = "Edit Profile";
   static const String phoneNumberText = "Phone Number";
   static const String notUserText = "Not a User yet?";
   static const String getStartedText = "Get Started";
   static const String firstNameText = "First Name";
+  static const String contactUsText = "Contact Us";
   static const String userNameText = "User Name";
-  static const String notAvailableText = "Not Available";
   static const String lastNameText = "Last Name";
   static const String passwordText = "Password";
   static const String welcomeText = "Welcome";
+  static const String logoutText = "Logout";
   static const String signupText = "Signup";
   static const String loginText = "Login";
   static const String emailText = "Email";
+  static const String moreText = "More";
 }
