@@ -6,8 +6,8 @@ class BarberCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 325.w,
-      height: 174.h,
+      height: 100.h,
+      width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(20.sp),
@@ -23,27 +23,34 @@ class BarberCardWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 140.w,
-            height: 174.h,
+            height: double.infinity,
+            width: 100.w,
             decoration: BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.circular(20.sp),
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 6.sp, horizontal: 10.sp),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Beky Barber shop",
-                    style: AppFonts.fontHeavy17black,
-                  ),
-                ],
-              ),
+          GapWidget(10),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 10.sp,
             ),
-          )
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Shop Name",
+                  style: AppFonts.fontHeavy17black,
+                ),
+                GapWidget(5),
+                Text(
+                  "+20 100 084 5943",
+                  style: AppFonts.fontLight14grey,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

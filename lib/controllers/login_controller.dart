@@ -2,9 +2,10 @@ import 'package:barber/constants/app_imports.dart';
 
 class LoginController extends GetxController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
-  String? emailAddress, password;
-  RxBool isObscure = RxBool(true);
+  static FirebaseAuth fireauth = FirebaseAuth.instance;
   RxBool isLoading = RxBool(false);
+  RxBool isObscure = RxBool(true);
+  String? emailAddress, password;
 
   /// Validate on the user data before login to make sure that the data is valid.
   loginValidator() async {
@@ -16,7 +17,7 @@ class LoginController extends GetxController {
       var connection = await InternetConnectionChecker().hasConnection;
       if (connection == true) {
         try {
-          UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          UserCredential userCredential = await fireauth.signInWithEmailAndPassword(
             email: emailAddress!,
             password: password!,
           );

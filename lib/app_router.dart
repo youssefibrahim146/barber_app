@@ -2,6 +2,7 @@ import 'package:barber/constants/app_imports.dart';
 import 'package:barber/view/screens/barber_details_screen.dart';
 import 'package:barber/view/screens/phone_signup_screen.dart';
 import 'package:barber/view/screens/sms_code_screen.dart';
+import 'package:barber/view/screens/user_profile_screen.dart';
 
 class AppRouter {
   static List<GetPage> appPages = [
@@ -22,13 +23,20 @@ class AppRouter {
       ),
     ),
     GetPage(
-      name: AppStrings.getStartedRoute,
-      page: () => const GetStartedScreen(),
+      name: AppStrings.userProfileRoute,
+      page: () => const UserProfileScreen(),
       transition: Transition.noTransition,
       transitionDuration: Duration(
         milliseconds: 500,
       ),
     ),
+    GetPage(
+        name: AppStrings.getStartedRoute,
+        page: () => const GetStartedScreen(),
+        transition: Transition.noTransition,
+        transitionDuration: Duration(
+          milliseconds: 500,
+        )),
     GetPage(
       name: AppStrings.signupRoute,
       page: () => const SignupScreen(),

@@ -3,11 +3,14 @@ import 'dart:io';
 import 'package:barber/constants/app_imports.dart';
 
 class SignupController extends GetxController {
+  static CollectionReference usersCollection = firestore.collection(AppStrings.usersCollection);
+  static FirebaseFirestore firestore = FirebaseFirestore.instance;
+  static FirebaseAuth fireauth = FirebaseAuth.instance;
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+  String? userName, emailAddress, password;
   Rx<File?> image = Rx<File?>(null);
   RxBool isLoading = false.obs;
   RxBool isObscure = true.obs;
-  String? userName, emailAddress, password;
 
   /// Pick user profile image from the phone gallery
   void pickImage() async {
@@ -29,19 +32,19 @@ class SignupController extends GetxController {
         try {
           String? imageUrl = await uploadUserImage(emailAddress!, image);
           if (imageUrl != null) {
-            UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            UserCredential userCredential = await fireauth.createUserWithEmailAndPassword(
               email: emailAddress!,
               password: password!,
             );
             if (userCredential.user!.emailVerified == false) {
-              await FirebaseAuth.instance.currentUser!.sendEmailVerification();
-              await FirebaseAuth.instance.signOut();
-              await FirebaseFirestore.instance.collection(AppStrings.usersCollection).doc(emailAddress).set({
+              await fireauth.currentUser!.sendEmailVerification();
+              await fireauth.signOut();
+              await usersCollection.doc(emailAddress).set({
                 AppStrings.nameField: userName,
                 AppStrings.emailField: emailAddress,
                 AppStrings.profileImageField: imageUrl,
               });
-              await FirebaseFirestore.instance.collection(AppStrings.usersCollection).doc(AppStrings.authUsersDocument).set(
+              await usersCollection.doc(AppStrings.authUsersDocument).set(
                 {
                   AppStrings.emailsField: FieldValue.arrayUnion([emailAddress!])
                 },
