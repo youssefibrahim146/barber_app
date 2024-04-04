@@ -1,4 +1,5 @@
 import 'package:barber/constants/app_imports.dart';
+import 'package:barber/controllers/user_profile_controller.dart';
 
 class AppBindings extends Bindings {
   @override
@@ -9,6 +10,10 @@ class AppBindings extends Bindings {
     );
     Get.lazyPut(
       () => PhoneSignupController(),
+      fenix: true,
+    );
+    Get.lazyPut(
+      () => UserProfileController(),
       fenix: true,
     );
     Get.lazyPut(

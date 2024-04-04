@@ -64,6 +64,9 @@ class InputFieldWidget extends StatelessWidget {
         onChanged: onChanged,
         initialValue: initVal,
         cursorColor: AppColors.petrol,
+        onTapOutside: (PointerDownEvent event) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
         decoration: InputDecoration(
           hintText: placeholder,
           hintStyle: AppFonts.fontHeavy20Petrol,
@@ -71,6 +74,9 @@ class InputFieldWidget extends StatelessWidget {
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.sp),
+            borderSide: const BorderSide(
+              color: AppColors.transparent,
+            ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.sp),

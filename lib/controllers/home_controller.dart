@@ -6,13 +6,19 @@ class HomeController extends GetxController {
   static String currentUserEmail = fireauth.currentUser!.email ?? AppStrings.emptySign;
   static FirebaseFirestore firestore = FirebaseFirestore.instance;
   static FirebaseAuth fireauth = FirebaseAuth.instance;
+  RxString userName = RxString(AppStrings.emptySign);
+  RxString userImage = RxString(AppStrings.emptySign);
+  RxBool isHome = RxBool(true);
 
   /// Fetch user data from users collection by his email
   Future<UserModel> fetchUserData() async {
     try {
       QuerySnapshot querySnapshot = await usersCollectionWhereEmailEqualsCurrentUserEmail.get();
       if (querySnapshot.docs.isNotEmpty) {
-        return UserModel.fromMap(querySnapshot.docs.first.data() as Map<String, dynamic>);
+        UserModel user = UserModel.fromMap(querySnapshot.docs.first.data() as Map<String, dynamic>);
+        userName = user.name;
+        userImage = user.image;
+        return user;
       } else {
         return UserModel(
           email: RxString(AppStrings.notAvailableText),
@@ -28,5 +34,9 @@ class HomeController extends GetxController {
         name: RxString(AppStrings.notAvailableText),
       );
     }
+  }
+
+  void appBarOnClick() {
+    Get.toNamed(AppStrings.userProfileRoute)!.then((value) => isHome = RxBool(false));
   }
 }
