@@ -10,7 +10,8 @@ class SignupController extends GetxController {
   String? userName, emailAddress, password;
 
   void pickImage() async {
-    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       image.value = File(pickedFile.path);
     }
@@ -27,19 +28,26 @@ class SignupController extends GetxController {
         try {
           String? imageUrl = await uploadUserImage(emailAddress!, image);
           if (imageUrl != null) {
-            UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            UserCredential userCredential =
+                await FirebaseAuth.instance.createUserWithEmailAndPassword(
               email: emailAddress!,
               password: password!,
             );
             if (userCredential.user!.emailVerified == false) {
               await FirebaseAuth.instance.currentUser!.sendEmailVerification();
               await FirebaseAuth.instance.signOut();
-              await FirebaseFirestore.instance.collection(AppStrings.usersCollection).doc(emailAddress).set({
+              await FirebaseFirestore.instance
+                  .collection(AppStrings.usersCollection)
+                  .doc(emailAddress)
+                  .set({
                 AppStrings.nameField: userName,
                 AppStrings.emailField: emailAddress,
                 AppStrings.profileImageField: imageUrl,
               });
-              await FirebaseFirestore.instance.collection(AppStrings.usersCollection).doc(AppStrings.authUsersDocument).set(
+              await FirebaseFirestore.instance
+                  .collection(AppStrings.usersCollection)
+                  .doc(AppStrings.authUsersDocument)
+                  .set(
                 {
                   AppStrings.emailsField: FieldValue.arrayUnion([emailAddress!])
                 },
@@ -56,10 +64,12 @@ class SignupController extends GetxController {
           }
         } on FirebaseAuthException catch (e) {
           isLoading.value = false;
-          AppDefaults.defaultToast(AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
+          AppDefaults.defaultToast(
+              AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
         } catch (e) {
           isLoading.value = false;
-          AppDefaults.defaultToast(AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
+          AppDefaults.defaultToast(
+              AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
         }
       } else {
         isLoading.value = false;
@@ -71,8 +81,13 @@ class SignupController extends GetxController {
   Future<String?> uploadUserImage(String emailAddress, Rx<File?> image) async {
     try {
       if (image.value != null) {
-        String formattedEmail = AppFormats.myFormatter(emailAddress, AppStrings.underscoreSign);
-        final storageReference = FirebaseStorage.instance.ref().child(AppStrings.profileImagesBase + AppStrings.backSlashSign + formattedEmail + AppStrings.profileImageNameEndBase);
+        String formattedEmail =
+            AppFormats.myFormatter(emailAddress, AppStrings.underscoreSign);
+        final storageReference = FirebaseStorage.instance.ref().child(
+            AppStrings.profileImagesBase +
+                AppStrings.backSlashSign +
+                formattedEmail +
+                AppStrings.profileImageNameEndBase);
         final UploadTask uploadTask = storageReference.putFile(
           image.value!,
           SettableMetadata(
@@ -101,7 +116,9 @@ class SignupController extends GetxController {
     isObscure.value = !isObscure.value;
   }
 
-  void signupWithPhoneNumberTextOnClick() {}
+  void signupWithPhoneNumberTextOnClick() {
+    Get.toNamed(AppStrings.phoneSignupRoute);
+  }
 
   void loginTextOnClick() {
     Get.offNamed(AppStrings.loginRoute);

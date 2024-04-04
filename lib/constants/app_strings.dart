@@ -92,15 +92,23 @@ class AppStrings {
   static const String atSign = "@";
   static const String orSign = "|";
 
-  // Toasts
-  static const String emailSentSuccessfullyToast = "Email sent successfully, please check your email to reset your password.";
-  static const String yourEmailNotInOurDatabaseToast = "Your email is not in our database, Try to signup with that email.";
-  static const String passwordChangedSuccessfullyToast = "Password changed successfully.";
-  static const String accountDeletedSuccessfullyToast = "Account deleted successfully.";
-  static const String connectionErrorToast = "Please check your internet connection.";
-  static const String selectConditionToast = "PLease select condition for your item.";
-  static const String selectCategoryToast = "PLease select category for your item.";
-  static const String imageFailedUploadingToast = "Failed uploading your image.";
+  /// Toasts
+  static const String emailSentSuccessfullyToast =
+      "Email sent successfully, please check your email to reset your password.";
+  static const String yourEmailNotInOurDatabaseToast =
+      "Your email is not in our database, Try to signup with that email.";
+  static const String passwordChangedSuccessfullyToast =
+      "Password changed successfully.";
+  static const String accountDeletedSuccessfullyToast =
+      "Account deleted successfully.";
+  static const String connectionErrorToast =
+      "Please check your internet connection.";
+  static const String selectConditionToast =
+      "PLease select condition for your item.";
+  static const String selectCategoryToast =
+      "PLease select category for your item.";
+  static const String imageFailedUploadingToast =
+      "Failed uploading your image.";
   static const String verifyEmailFirstToast = "Please verify your email first.";
   static const String emailCanNotBeEditedToast = "Email field can't be edited.";
   static const String errorResettingPasswordToast = "Error resetting password.";
@@ -117,18 +125,29 @@ class AppStrings {
   static const String errorFetchingToast = "Error fetching: ";
   static const String errorUpdatingToast = "Error updating: ";
 
-  // Validations
-  static const String oldPasswordLargerThen24Validate = "Old password can't be larger then 24 letters";
-  static const String newPasswordLargerThen24Validate = "New password can't be larger then 24 letters";
-  static const String oldPasswordLessThen8Validate = " Old password can't be less then 8 letters";
-  static const String newPasswordLessThen8Validate = " New password can't be less then 8 letters";
-  static const String passwordLargerThen24Validate = "Password can't be larger then 24 letters";
-  static const String nameLargerThen24Validate = "User name can't be larger then 24 letters";
-  static const String phoneNumberBadlyFormattedValidate = "Phone Number is badly formatted";
-  static const String badlyFormattedPhoneNumberValidate = "Phone Number is badly formatted";
-  static const String passwordLessThen8Validate = "Password can't be less then 8 letters";
-  static const String nameLessThen4Validate = "User name can't be less then 4 letters";
-  static const String phoneNumberEmptyValidate = "Phone Number can't be empty";
+  /// Validations
+  static const String oldPasswordLargerThen24Validate =
+      "Old password can't be larger then 24 letters";
+  static const String newPasswordLargerThen24Validate =
+      "New password can't be larger then 24 letters";
+  static const String oldPasswordLessThen8Validate =
+      " Old password can't be less then 8 letters";
+  static const String newPasswordLessThen8Validate =
+      " New password can't be less then 8 letters";
+  static const String passwordLargerThen24Validate =
+      "Password can't be larger then 24 letters";
+  static const String nameLargerThen24Validate =
+      "User name can't be larger then 24 letters";
+  static const String phoneNumberBadlyFormattedValidate =
+      "Phone Number is badly formatted";
+  static const String badlyFormattedPhoneNumberValidate =
+      "Phone Number is badly formatted";
+  static const String passwordLessThen8Validate =
+      "Password can't be less then 8 letters";
+  static const String nameLessThen4Validate =
+      "User name can't be less then 4 letters";
+  static const String phoneNumberEmptyValidate =
+      "Please enter your phone number";
   static const String newPasswordEmptyValidate = "New password can't be empty";
   static const String oldPasswordEmptyValidate = "Old password can't be empty";
   static const String emailEmptyValidate = "Email address can't be empty";
@@ -148,8 +167,10 @@ class AppStrings {
   static const String logoAsset = "assets/icons/barber logo.png";
 
   /// Screens Titles, SubTitles
-  static const String getStatedSubTitle = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
-  static const String getStatedTitle = "Book Your Schedule$newLineSign With Your favorite$newLineSign Barber";
+  static const String getStatedSubTitle =
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+  static const String getStatedTitle =
+      "Book Your Schedule$newLineSign With Your favorite$newLineSign Barber";
 
   /// Other
   static const String signupWithPhoneNumberText = "Signup with Phone Number";

@@ -15,17 +15,20 @@ class LoginController extends GetxController {
       var connection = await InternetConnectionChecker().hasConnection;
       if (connection == true) {
         try {
-          UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          UserCredential userCredential =
+              await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: emailAddress!,
             password: password!,
           );
           return userCredential;
         } on FirebaseAuthException catch (e) {
           isLoading.value = false;
-          AppDefaults.defaultToast(AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
+          AppDefaults.defaultToast(
+              AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
         } catch (e) {
           isLoading.value = false;
-          AppDefaults.defaultToast(AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
+          AppDefaults.defaultToast(
+              AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
         }
       } else {
         isLoading.value = false;
@@ -52,7 +55,9 @@ class LoginController extends GetxController {
     isObscure.value = !isObscure.value;
   }
 
-  void loginWithPhoneNumberTextOnClick() {}
+  void loginWithPhoneNumberTextOnClick() {
+    Get.toNamed(AppStrings.phoneSignupRoute);
+  }
 
   void signupTextOnClick() {
     Get.offNamed(AppStrings.signupRoute);

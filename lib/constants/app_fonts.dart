@@ -31,4 +31,9 @@ class AppFonts {
     fontSize: 17.sp,
     color: AppColors.black,
   );
+  static TextStyle fontHeavy18grey = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 18.sp,
+    color: AppColors.darkGrey,
+  );
 }
