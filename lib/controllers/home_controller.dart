@@ -6,8 +6,14 @@ class HomeController extends GetxController {
   static String currentUserEmail = fireauth.currentUser!.email ?? AppStrings.emptySign;
   static FirebaseFirestore firestore = FirebaseFirestore.instance;
   static FirebaseAuth fireauth = FirebaseAuth.instance;
-  RxString userName = RxString(AppStrings.emptySign);
-  RxString userImage = RxString(AppStrings.emptySign);
+  Rx<UserModel> currentUser = Rx<UserModel>(
+    UserModel(
+      email: RxString(AppStrings.notAvailableText),
+      image: RxString(AppStrings.notAvailableText),
+      phone: RxString(AppStrings.notAvailableText),
+      name: RxString(AppStrings.notAvailableText),
+    ),
+  );
   RxBool isHome = RxBool(true);
 
   /// Fetch user data from users collection by his email
@@ -16,13 +22,13 @@ class HomeController extends GetxController {
       QuerySnapshot querySnapshot = await usersCollectionWhereEmailEqualsCurrentUserEmail.get();
       if (querySnapshot.docs.isNotEmpty) {
         UserModel user = UserModel.fromMap(querySnapshot.docs.first.data() as Map<String, dynamic>);
-        userName = user.name;
-        userImage = user.image;
+        currentUser.value = user;
         return user;
       } else {
         return UserModel(
           email: RxString(AppStrings.notAvailableText),
           image: RxString(AppStrings.notAvailableText),
+          phone: RxString(AppStrings.notAvailableText),
           name: RxString(AppStrings.notAvailableText),
         );
       }
@@ -31,6 +37,7 @@ class HomeController extends GetxController {
       return UserModel(
         email: RxString(AppStrings.notAvailableText),
         image: RxString(AppStrings.notAvailableText),
+        phone: RxString(AppStrings.notAvailableText),
         name: RxString(AppStrings.notAvailableText),
       );
     }

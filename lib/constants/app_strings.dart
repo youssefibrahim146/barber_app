@@ -18,7 +18,6 @@ class AppStrings {
   static const String senderProfileImageField = "senderProfileImage";
   static const String profileImageField = "profileImage";
   static const String chatRoomsCollection = "chatRooms";
-  static const String phoneNumberField = "phoneNumber";
   static const String descriptionField = "description";
   static const String chatRoomIdsField = "chatRoomIds";
   static const String senderEmailField = "senderEmail";
@@ -39,6 +38,7 @@ class AppStrings {
   static const String emailsField = "emails";
   static const String imagesField = "images";
   static const String isSeenField = "isSeen";
+  static const String phoneField = "phone";
   static const String namesField = "names";
   static const String emailField = "email";
   static const String titleField = "title";
@@ -94,23 +94,14 @@ class AppStrings {
   static const String orSign = "|";
 
   /// Toasts
-
-  static const String emailSentSuccessfullyToast =
-      "Email sent successfully, please check your email to reset your password.";
-  static const String yourEmailNotInOurDatabaseToast =
-      "Your email is not in our database, Try to signup with that email.";
-  static const String passwordChangedSuccessfullyToast =
-      "Password changed successfully.";
-  static const String accountDeletedSuccessfullyToast =
-      "Account deleted successfully.";
-  static const String connectionErrorToast =
-      "Please check your internet connection.";
-  static const String selectConditionToast =
-      "PLease select condition for your item.";
-  static const String selectCategoryToast =
-      "PLease select category for your item.";
-  static const String imageFailedUploadingToast =
-      "Failed uploading your image.";
+  static const String emailSentSuccessfullyToast = "Email sent successfully, please check your email to reset your password.";
+  static const String yourEmailNotInOurDatabaseToast = "Your email is not in our database, Try to signup with that email.";
+  static const String passwordChangedSuccessfullyToast = "Password changed successfully.";
+  static const String accountDeletedSuccessfullyToast = "Account deleted successfully.";
+  static const String connectionErrorToast = "Please check your internet connection.";
+  static const String selectConditionToast = "PLease select condition for your item.";
+  static const String selectCategoryToast = "PLease select category for your item.";
+  static const String imageFailedUploadingToast = "Failed uploading your image.";
   static const String verifyEmailFirstToast = "Please verify your email first.";
   static const String emailCanNotBeEditedToast = "Email field can't be edited.";
   static const String errorResettingPasswordToast = "Error resetting password.";
@@ -128,30 +119,17 @@ class AppStrings {
   static const String errorUpdatingToast = "Error updating: ";
 
   /// Validations
-
-  static const String oldPasswordLargerThen24Validate =
-      "Old password can't be larger then 24 letters";
-  static const String newPasswordLargerThen24Validate =
-      "New password can't be larger then 24 letters";
-  static const String oldPasswordLessThen8Validate =
-      " Old password can't be less then 8 letters";
-  static const String newPasswordLessThen8Validate =
-      " New password can't be less then 8 letters";
-  static const String passwordLargerThen24Validate =
-      "Password can't be larger then 24 letters";
-  static const String nameLargerThen24Validate =
-      "User name can't be larger then 24 letters";
-  static const String phoneNumberBadlyFormattedValidate =
-      "Phone Number is badly formatted";
-  static const String badlyFormattedPhoneNumberValidate =
-      "Phone Number is badly formatted";
-  static const String passwordLessThen8Validate =
-      "Password can't be less then 8 letters";
-  static const String nameLessThen4Validate =
-      "User name can't be less then 4 letters";
-  static const String phoneNumberEmptyValidate =
-      "Please enter your phone number";
-
+  static const String oldPasswordLargerThen24Validate = "Old password can't be larger then 24 letters";
+  static const String newPasswordLargerThen24Validate = "New password can't be larger then 24 letters";
+  static const String oldPasswordLessThen8Validate = " Old password can't be less then 8 letters";
+  static const String newPasswordLessThen8Validate = " New password can't be less then 8 letters";
+  static const String passwordLargerThen24Validate = "Password can't be larger then 24 letters";
+  static const String nameLargerThen24Validate = "User name can't be larger then 24 letters";
+  static const String phoneNumberBadlyFormattedValidate = "Phone Number is badly formatted";
+  static const String badlyFormattedPhoneNumberValidate = "Phone Number is badly formatted";
+  static const String passwordLessThen8Validate = "Password can't be less then 8 letters";
+  static const String nameLessThen4Validate = "User name can't be less then 4 letters";
+  static const String phoneNumberEmptyValidate = "Please enter your phone number";
   static const String newPasswordEmptyValidate = "New password can't be empty";
   static const String oldPasswordEmptyValidate = "Old password can't be empty";
   static const String emailEmptyValidate = "Email address can't be empty";
@@ -172,14 +150,15 @@ class AppStrings {
   static const String logoAsset = "assets/icons/barber logo.png";
 
   /// Screens Titles, SubTitles
-  static const String getStatedSubTitle =
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
-  static const String getStatedTitle =
-      "Book Your Schedule$newLineSign With Your favorite$newLineSign Barber";
+  static const String getStatedSubTitle = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+  static const String getStatedTitle = "Book Your Schedule$newLineSign With Your favorite$newLineSign Barber";
 
   /// Other
+  static const String deleteAccountMessageText = "Please confirm your password to make sure that you want to delete your account.";
+  static const String logoutMessageText = "Are you sure that you want to logout?";
   static const String signupWithPhoneNumberText = "Signup with Phone Number";
   static const String loginWithPhoneNumberText = "Login with Phone Number";
+  static const String confirmPasswordText = "Confirm Password";
   static const String accountSettingText = "Account Setting";
   static const String changePasswordText = "Change Password";
   static const String deleteAccountText = "Delete Account";
@@ -188,6 +167,8 @@ class AppStrings {
   static const String reservationsText = "Reservations";
   static const String editProfileText = "Edit Profile";
   static const String phoneNumberText = "Phone Number";
+  static const String newPasswordText = "New password";
+  static const String oldPasswordText = "Old password";
   static const String notUserText = "Not a User yet?";
   static const String getStartedText = "Get Started";
   static const String firstNameText = "First Name";
@@ -196,8 +177,11 @@ class AppStrings {
   static const String lastNameText = "Last Name";
   static const String passwordText = "Password";
   static const String welcomeText = "Welcome";
+  static const String confirmText = "Confirm";
   static const String logoutText = "Logout";
   static const String signupText = "Signup";
+  static const String cancelText = "Cancel";
+  static const String deleteText = "Delete";
   static const String loginText = "Login";
   static const String emailText = "Email";
   static const String moreText = "More";

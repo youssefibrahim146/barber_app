@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:barber/constants/app_imports.dart';
 
 class SignupController extends GetxController {
-  static CollectionReference usersCollection =
-      firestore.collection(AppStrings.usersCollection);
+  static CollectionReference usersCollection = firestore.collection(AppStrings.usersCollection);
   static FirebaseFirestore firestore = FirebaseFirestore.instance;
-  static FirebaseAuth fireauth = FirebaseAuth.instance;
+  static FirebaseStorage firestorage = FirebaseStorage.instance;
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+  static FirebaseAuth fireauth = FirebaseAuth.instance;
   String? userName, emailAddress, password;
   Rx<File?> image = Rx<File?>(null);
   RxBool isLoading = false.obs;
@@ -15,8 +15,7 @@ class SignupController extends GetxController {
 
   /// Pick user profile image from the phone gallery
   void pickImage() async {
-    final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       image.value = File(pickedFile.path);
     }
@@ -34,8 +33,7 @@ class SignupController extends GetxController {
         try {
           String? imageUrl = await uploadUserImage(emailAddress!, image);
           if (imageUrl != null) {
-            UserCredential userCredential =
-                await fireauth.createUserWithEmailAndPassword(
+            UserCredential userCredential = await fireauth.createUserWithEmailAndPassword(
               email: emailAddress!,
               password: password!,
             );
@@ -64,12 +62,10 @@ class SignupController extends GetxController {
           }
         } on FirebaseAuthException catch (e) {
           isLoading.value = false;
-          AppDefaults.defaultToast(
-              AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
+          AppDefaults.defaultToast(AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
         } catch (e) {
           isLoading.value = false;
-          AppDefaults.defaultToast(
-              AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
+          AppDefaults.defaultToast(AppFormats.myFormatter(e.toString(), AppStrings.spaceSign));
         }
       } else {
         isLoading.value = false;
@@ -82,12 +78,8 @@ class SignupController extends GetxController {
   Future<String?> uploadUserImage(String emailAddress, Rx<File?> image) async {
     try {
       if (image.value != null) {
-        String formattedEmail =
-            AppFormats.myFormatter(emailAddress, AppStrings.underscoreSign);
-        final storageReference = FirebaseStorage.instance.ref().child(
-            AppStrings.profileImagesBase +
-                formattedEmail +
-                AppStrings.profileImageNameEndBase);
+        String formattedEmail = AppFormats.myFormatter(emailAddress, AppStrings.underscoreSign);
+        final storageReference = firestorage.ref().child(AppStrings.profileImagesBase + formattedEmail + AppStrings.profileImageNameEndBase);
         final UploadTask uploadTask = storageReference.putFile(
           image.value!,
           SettableMetadata(
