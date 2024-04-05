@@ -1,7 +1,9 @@
 import 'package:barber/constants/app_imports.dart';
 
 class BarberCardWidget extends StatelessWidget {
-  const BarberCardWidget({super.key});
+  final BarberModel barber;
+
+  const BarberCardWidget(this.barber, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +28,20 @@ class BarberCardWidget extends StatelessWidget {
             height: double.infinity,
             width: 100.w,
             decoration: BoxDecoration(
-              color: Colors.black,
+              color: AppColors.petrol,
               borderRadius: BorderRadius.circular(20.sp),
+            ),
+            child: Hero(
+              tag: barber.image + barber.name,
+              child: Card(
+                elevation: 0.sp,
+                margin: EdgeInsets.all(0.sp),
+                color: AppColors.transparent,
+                child: CachedNetworkImageWidget(
+                  imageUrl: barber.image,
+                  placeholderColor: AppColors.white,
+                ),
+              ),
             ),
           ),
           GapWidget(10),
@@ -39,13 +53,21 @@ class BarberCardWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Shop Name",
-                  style: AppFonts.fontHeavy17black,
+                Hero(
+                  tag: barber.name + barber.image,
+                  child: Card(
+                    elevation: 0.sp,
+                    margin: EdgeInsets.all(0.sp),
+                    color: AppColors.transparent,
+                    child: Text(
+                      barber.name,
+                      style: AppFonts.fontHeavy17black,
+                    ),
+                  ),
                 ),
                 GapWidget(5),
                 Text(
-                  "+20 100 084 5943",
+                  barber.phone,
                   style: AppFonts.fontLight14grey,
                 ),
               ],

@@ -151,6 +151,57 @@ class UserProfileController extends GetxController {
     );
   }
 
+  /// To display current user reservations.
+  void reservationsButtonOnClick() {
+    AppDefaults.defaultBottomSheet(
+      height: 400.h,
+      isDismissible: true,
+      ChangePasswordBottomSheetWidgets(
+        formState: changePasswordFormState,
+        isLoading: isLoading,
+        isOldPasswordObscure: isOldPasswordObscure,
+        oldPasswordOnSaved: (value) {
+          oldPassword = value;
+        },
+        isNewPasswordObscure: isNewPasswordObscure,
+        newPasswordOnSaved: (value) {
+          newPassword = value;
+        },
+        confirmOnClick: () async {
+          isLoading.value = true;
+          FocusManager.instance.primaryFocus?.unfocus();
+          var formData = changePasswordFormState.currentState;
+          if (formData!.validate()) {
+            formData.save();
+            isLoading.value = true;
+            User? user = fireauth.currentUser;
+            try {
+              /// Authenticating to make sure that the user is logged in.
+              if (user != null) {
+                AuthCredential credential = EmailAuthProvider.credential(
+                  email: currentUserEmail,
+                  password: oldPassword!,
+                );
+                await user.reauthenticateWithCredential(credential);
+
+                /// Change current user password.
+                FirebaseAuth.instance.currentUser!.updatePassword(newPassword!);
+                Get.back();
+                AppDefaults.defaultToast(AppStrings.passwordChangedSuccessfullyToast);
+              }
+            } catch (e) {
+              isLoading.value = false;
+              AppDefaults.defaultToast(AppStrings.errorResettingPasswordToast + e.toString());
+            }
+            isLoading.value = false;
+          } else {
+            isLoading.value = false;
+          }
+        },
+      ),
+    );
+  }
+
   /// To delete all the current user data and delete his account from fireauth.
   void deleteAccountOnClick() {
     AppDefaults.defaultBottomSheet(

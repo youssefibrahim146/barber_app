@@ -1,5 +1,4 @@
 import 'package:barber/constants/app_imports.dart';
-import 'package:barber/controllers/user_profile_controller.dart';
 
 class AppBindings extends Bindings {
   @override
@@ -18,6 +17,10 @@ class AppBindings extends Bindings {
     );
     Get.lazyPut(
       () => GetStartedController(),
+      fenix: true,
+    );
+    Get.lazyPut(
+      () => MySearchController(),
       fenix: true,
     );
     Get.lazyPut(

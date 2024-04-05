@@ -8,6 +8,7 @@ class AppStrings {
   static const String userProfileRoute = "/userProfile";
   static const String phoneSignupRoute = "/phoneSignup";
   static const String sMSCodeRoute = "/smsCode";
+  static const String searchRoute = "/search";
   static const String signupRoute = "/signup";
   static const String getStartedRoute = "/";
   static const String loginRoute = "/login";
@@ -17,12 +18,15 @@ class AppStrings {
   static const String receiverProfileImageField = "receiverProfileImage";
   static const String senderProfileImageField = "senderProfileImage";
   static const String profileImageField = "profileImage";
+  static const String reservationsField = "reservations";
   static const String chatRoomsCollection = "chatRooms";
   static const String descriptionField = "description";
   static const String chatRoomIdsField = "chatRoomIds";
   static const String senderEmailField = "senderEmail";
   static const String messagesCollection = "messages";
   static const String authUsersDocument = "authUsers";
+  static const String barberNameField = "barberName";
+  static const String barbersCollection = "barbers";
   static const String chatRoomsField = "chatRooms";
   static const String userEmailField = "userEmail";
   static const String userImageField = "userImage";
@@ -30,6 +34,7 @@ class AppStrings {
   static const String timestampField = "timestamp";
   static const String imageUrlsField = "imageUrls";
   static const String conditionField = "condition";
+  static const String userNameField = "userName";
   static const String categoryField = "category";
   static const String locationField = "location";
   static const String postsCollection = "posts";
@@ -48,6 +53,7 @@ class AppStrings {
   static const String areaField = "area";
   static const String iconField = "icon";
   static const String viewField = "view";
+  static const String dateField = "date";
   static const String keyField = "key";
   static const String favField = "fav";
 
@@ -111,6 +117,7 @@ class AppStrings {
   static const String errorDeletingAccountToast = "Error deleting account: ";
   static const String deletedSuccessfullyToast = "Deleted successfully.";
   static const String updatedSuccessfullyToast = "Updated successfully.";
+  static const String enterValidDataToast = "Please enter a valid data.";
   static const String emptyMessageToast = "can't send empty message.";
   static const String errorUploadingToast = "Error uploading: ";
   static const String imageEditToast = "Image can't be edited.";
@@ -156,6 +163,7 @@ class AppStrings {
   /// Other
   static const String deleteAccountMessageText = "Please confirm your password to make sure that you want to delete your account.";
   static const String logoutMessageText = "Are you sure that you want to logout?";
+  static const String noBarbersFoundText = "No barbers found for that search";
   static const String signupWithPhoneNumberText = "Signup with Phone Number";
   static const String loginWithPhoneNumberText = "Login with Phone Number";
   static const String confirmPasswordText = "Confirm Password";
@@ -171,6 +179,7 @@ class AppStrings {
   static const String oldPasswordText = "Old password";
   static const String notUserText = "Not a User yet?";
   static const String getStartedText = "Get Started";
+  static const String barberNameText = "Barber Name";
   static const String firstNameText = "First Name";
   static const String contactUsText = "Contact Us";
   static const String userNameText = "User Name";
@@ -178,11 +187,15 @@ class AppStrings {
   static const String passwordText = "Password";
   static const String welcomeText = "Welcome";
   static const String confirmText = "Confirm";
+  static const String setDayText = "Set Day";
   static const String logoutText = "Logout";
   static const String signupText = "Signup";
   static const String cancelText = "Cancel";
   static const String deleteText = "Delete";
+  static const String offersText = "Offers";
   static const String loginText = "Login";
+  static const String priceText = "Price";
   static const String emailText = "Email";
   static const String moreText = "More";
+  static const String telText = "tel: ";
 }
