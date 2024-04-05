@@ -58,34 +58,38 @@ class HomeAppBarWidget extends StatelessWidget {
               }
             },
           )
-        : Row(
-            children: [
-              CircleAvatar(
-                backgroundColor: AppColors.petrol,
-                radius: 25.sp,
-                child: CachedNetworkImageWidget(
-                  imageUrl: controller.userImage.value,
-                  borderRadius: BorderRadius.circular(100.sp),
-                  placeholderColor: AppColors.white,
-                ),
-              ),
-              const GapWidget(15),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+        : Obx(
+            () {
+              return Row(
                 children: [
-                  Text(
-                    AppStrings.welcomeText,
-                    style: AppFonts.fontLight14grey,
+                  CircleAvatar(
+                    backgroundColor: AppColors.petrol,
+                    radius: 25.sp,
+                    child: CachedNetworkImageWidget(
+                      imageUrl: controller.currentUser.value.image.value,
+                      borderRadius: BorderRadius.circular(100.sp),
+                      placeholderColor: AppColors.white,
+                    ),
                   ),
-                  const GapWidget(3),
-                  Text(
-                    controller.userName.value,
-                    style: AppFonts.fontHeavy17black,
+                  const GapWidget(15),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        AppStrings.welcomeText,
+                        style: AppFonts.fontLight14grey,
+                      ),
+                      const GapWidget(3),
+                      Text(
+                        controller.currentUser.value.name.value,
+                        style: AppFonts.fontHeavy17black,
+                      ),
+                    ],
                   ),
                 ],
-              ),
-            ],
+              );
+            },
           );
   }
 }

@@ -73,11 +73,14 @@ class LoginScreen extends GetWidget<LoginController> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             const GapWidget(20),
-                            InputFieldWidget(
-                              onSaved: (value) {
+                            TextFormFieldWidget(
+                              color: AppColors.petrol,
+                              padding: 0.sp,
+                              filled: true,
+                              onSaved: (String? value) {
                                 controller.emailAddress = value!;
                               },
-                              validator: (value) {
+                              validator: (String? value) {
                                 if (value == null || value.isEmpty) {
                                   return AppStrings.emailEmptyValidate;
                                 } else if (!value.contains(AppStrings.atSign)) {
@@ -88,13 +91,17 @@ class LoginScreen extends GetWidget<LoginController> {
                               keyboardType: TextInputType.emailAddress,
                               placeholder: AppStrings.emailText,
                             ),
+                            GapWidget(10),
                             Obx(
                               () {
-                                return InputFieldWidget(
-                                  onSaved: (value) {
+                                return TextFormFieldWidget(
+                                  color: AppColors.petrol,
+                                  padding: 0.sp,
+                                  filled: true,
+                                  onSaved: (String? value) {
                                     controller.password = value!;
                                   },
-                                  validator: (value) {
+                                  validator: (String? value) {
                                     if (value == null || value.isEmpty) {
                                       return AppStrings.passwordEmptyValidate;
                                     } else if (value.length < 8) {
@@ -106,7 +113,6 @@ class LoginScreen extends GetWidget<LoginController> {
                                   },
                                   placeholder: AppStrings.passwordText,
                                   obscure: controller.isObscure.value,
-                                  textAlign: TextAlign.start,
                                   suffixIcon: InkWell(
                                     onTap: controller.passwordObscureOnClick,
                                     child: Icon(
@@ -118,7 +124,7 @@ class LoginScreen extends GetWidget<LoginController> {
                                 );
                               },
                             ),
-                            GapWidget(10),
+                            GapWidget(20),
                             SubmitButton(
                               AppStrings.loginText,
                               isLoading: controller.isLoading,

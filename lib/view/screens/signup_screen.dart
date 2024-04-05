@@ -122,12 +122,15 @@ class SignupScreen extends GetWidget<SignupController> {
                                 ),
                               ),
                             ),
-                            GapWidget(10),
-                            InputFieldWidget(
-                              onSaved: (value) {
+                            GapWidget(20),
+                            TextFormFieldWidget(
+                              color: AppColors.petrol,
+                              padding: 0.sp,
+                              filled: true,
+                              onSaved: (String? value) {
                                 controller.userName = value!;
                               },
-                              validator: (value) {
+                              validator: (String? value) {
                                 if (value == null || value.isEmpty) {
                                   return AppStrings.nameEmptyValidate;
                                 } else if (value.length < 4) {
@@ -140,11 +143,15 @@ class SignupScreen extends GetWidget<SignupController> {
                               placeholder: AppStrings.userNameText,
                               keyboardType: TextInputType.text,
                             ),
-                            InputFieldWidget(
-                              onSaved: (value) {
+                            GapWidget(10),
+                            TextFormFieldWidget(
+                              color: AppColors.petrol,
+                              padding: 0.sp,
+                              filled: true,
+                              onSaved: (String? value) {
                                 controller.emailAddress = value!;
                               },
-                              validator: (value) {
+                              validator: (String? value) {
                                 if (value == null || value.isEmpty) {
                                   return AppStrings.emailEmptyValidate;
                                 } else if (!value.contains(AppStrings.atSign)) {
@@ -155,13 +162,17 @@ class SignupScreen extends GetWidget<SignupController> {
                               keyboardType: TextInputType.emailAddress,
                               placeholder: AppStrings.emailText,
                             ),
+                            GapWidget(10),
                             Obx(
                               () {
-                                return InputFieldWidget(
-                                  onSaved: (value) {
+                                return TextFormFieldWidget(
+                                  color: AppColors.petrol,
+                                  padding: 0.sp,
+                                  filled: true,
+                                  onSaved: (String? value) {
                                     controller.password = value!;
                                   },
-                                  validator: (value) {
+                                  validator: (String? value) {
                                     if (value == null || value.isEmpty) {
                                       return AppStrings.passwordEmptyValidate;
                                     } else if (value.length < 8) {
@@ -173,7 +184,6 @@ class SignupScreen extends GetWidget<SignupController> {
                                   },
                                   placeholder: AppStrings.passwordText,
                                   obscure: controller.isObscure.value,
-                                  textAlign: TextAlign.start,
                                   suffixIcon: InkWell(
                                     onTap: controller.passwordObscureOnClick,
                                     child: Icon(
@@ -185,7 +195,7 @@ class SignupScreen extends GetWidget<SignupController> {
                                 );
                               },
                             ),
-                            GapWidget(10),
+                            GapWidget(20),
                             SubmitButton(
                               AppStrings.signupText,
                               isLoading: controller.isLoading,
