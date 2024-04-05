@@ -69,7 +69,7 @@ class UserProfileScreen extends GetWidget<UserProfileController> {
                 EditProfileMainWidget(
                   AppStrings.reservationsText,
                   icon: Icons.checklist_outlined,
-                  onClick: () {},
+                  onClick: controller.reservationsButtonOnClick,
                 ),
                 Divider(
                   height: 50.sp,

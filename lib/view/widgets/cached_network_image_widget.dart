@@ -28,7 +28,7 @@ class CachedNetworkImageWidget extends StatelessWidget {
               width: 325.w,
               child: Icon(
                 Icons.error_outline_rounded,
-                color: AppColors.petrol,
+                color: placeholderColor ?? AppColors.petrol,
                 size: 50.sp,
               ),
             ),
