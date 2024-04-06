@@ -4,10 +4,17 @@ class PhoneSignupController extends GetxController {
   GlobalKey<FormState> phoneAuthFormKey = GlobalKey<FormState>();
   final phoneAuthController = TextEditingController();
   final phoneAuthFocusNode = FocusNode();
+  final SMSCodeController smsCodeController = SMSCodeController();
 
-  nextButtonPressed() {
+  nextButtonPressed({required String phoneNumber}) {
     if (phoneAuthFormKey.currentState!.validate()) {
-      Get.toNamed(AppStrings.sMSCodeRoute);
+      smsCodeController.verifyPhoneNumber(
+        smsCodeController.formatPhoneNumber(phoneNumber),
+      );
+      Get.toNamed(
+        AppStrings.sMSCodeRoute,
+        arguments: phoneNumber,
+      );
     }
   }
 }

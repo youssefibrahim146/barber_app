@@ -1,5 +1,6 @@
 import 'package:barber/constants/app_bindings%20.dart';
 import 'package:barber/constants/app_imports.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 
 void main() async {
   /// Ensure that Flutter framework is initialized.
@@ -9,6 +10,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await FirebaseAppCheck.instance.activate();
 
   /// Fix text in release mode.
   ScreenUtil.ensureScreenSize();
@@ -41,7 +43,10 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         initialBinding: AppBindings(),
-        initialRoute: FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser!.emailVerified ? AppStrings.homeRoute : AppStrings.getStartedRoute,
+        initialRoute: FirebaseAuth.instance.currentUser != null &&
+                FirebaseAuth.instance.currentUser!.emailVerified
+            ? AppStrings.homeRoute
+            : AppStrings.getStartedRoute,
         getPages: AppRouter.appPages,
         title: AppStrings.appTitle,
       ),

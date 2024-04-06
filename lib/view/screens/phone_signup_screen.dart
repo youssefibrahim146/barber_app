@@ -42,7 +42,9 @@ class PhoneSignupScreen extends GetWidget<PhoneSignupController> {
                 alignment: Alignment.bottomCenter,
                 child: CircleNextButton(
                   onTap: () {
-                    controller.nextButtonPressed();
+                    controller.nextButtonPressed(
+                      phoneNumber: controller.phoneAuthController.text,
+                    );
                   },
                 ),
               ),
