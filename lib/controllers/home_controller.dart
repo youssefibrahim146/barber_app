@@ -69,7 +69,6 @@ class HomeController extends GetxController {
         BarberModel barber = BarberModel.fromMap(data);
         barbers.add(barber);
         allBarbers = barbers;
-        print(allBarbers);
       }
     } catch (e) {
       AppDefaults.defaultToast(AppStrings.errorFetchingToast + e.toString());
@@ -77,7 +76,7 @@ class HomeController extends GetxController {
     return barbers;
   }
 
-  void appBarOnClick() {
+  void profileOnClick() {
     Get.toNamed(AppStrings.userProfileRoute)!.then((value) => isHome = RxBool(false));
   }
 

@@ -1,3 +1,4 @@
+export 'package:barber/constants/app_bindings.dart';
 export 'package:barber/constants/app_colors.dart';
 export 'package:barber/constants/app_defaults.dart';
 export 'package:barber/constants/app_fonts.dart';
@@ -34,6 +35,7 @@ export 'package:barber/view/widgets/edit_profile_bottom_sheet_widgets.dart';
 export 'package:barber/view/widgets/gap_widget.dart';
 export 'package:barber/view/widgets/home_app_bar_widget.dart';
 export 'package:barber/view/widgets/on_tap_text_widget.dart';
+export 'package:barber/view/widgets/reservations_bottom_sheet_widgets.dart';
 export 'package:barber/view/widgets/submit_button.dart';
 export 'package:barber/view/widgets/switch_auth_screen_text.dart';
 export 'package:barber/view/widgets/text_form_field_widget.dart';
