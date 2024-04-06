@@ -9,7 +9,7 @@ class SignupScreen extends GetWidget<SignupController> {
       body: Container(
         padding: EdgeInsets.only(top: 30.sp),
         child: SingleChildScrollView(
-          physics: MediaQuery.of(context).viewInsets.bottom > 0 ? const ClampingScrollPhysics() : const NeverScrollableScrollPhysics(),
+          physics: NeverScrollableScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -81,13 +81,15 @@ class SignupScreen extends GetWidget<SignupController> {
                                     Obx(
                                       () {
                                         return ClipRRect(
-                                          borderRadius: BorderRadius.circular(250.sp),
+                                          borderRadius:
+                                              BorderRadius.circular(250.sp),
                                           child: Container(
                                             alignment: Alignment.center,
                                             decoration: BoxDecoration(
                                               color: AppColors.white,
                                             ),
-                                            child: controller.image.value != null
+                                            child: controller.image.value !=
+                                                    null
                                                 ? Container(
                                                     height: double.infinity,
                                                     width: double.infinity,
@@ -176,9 +178,11 @@ class SignupScreen extends GetWidget<SignupController> {
                                     if (value == null || value.isEmpty) {
                                       return AppStrings.passwordEmptyValidate;
                                     } else if (value.length < 8) {
-                                      return AppStrings.passwordLessThen8Validate;
+                                      return AppStrings
+                                          .passwordLessThen8Validate;
                                     } else if (value.length > 24) {
-                                      return AppStrings.passwordLargerThen24Validate;
+                                      return AppStrings
+                                          .passwordLargerThen24Validate;
                                     }
                                     return null;
                                   },
@@ -187,7 +191,9 @@ class SignupScreen extends GetWidget<SignupController> {
                                   suffixIcon: InkWell(
                                     onTap: controller.passwordObscureOnClick,
                                     child: Icon(
-                                      controller.isObscure.value ? Icons.visibility_off_rounded : Icons.visibility_rounded,
+                                      controller.isObscure.value
+                                          ? Icons.visibility_off_rounded
+                                          : Icons.visibility_rounded,
                                       color: AppColors.petrol,
                                     ),
                                   ),
@@ -203,7 +209,8 @@ class SignupScreen extends GetWidget<SignupController> {
                             ),
                             const GapWidget(20),
                             OnTapTextWidget(
-                              onTap: controller.signupWithPhoneNumberTextOnClick,
+                              onTap:
+                                  controller.signupWithPhoneNumberTextOnClick,
                               text: AppStrings.signupWithPhoneNumberText,
                             ),
                             const GapWidget(10),
@@ -212,7 +219,7 @@ class SignupScreen extends GetWidget<SignupController> {
                               text1: AppStrings.alreadyUserText,
                               text2: AppStrings.loginText,
                             ),
-                            const GapWidget(20),
+                            const GapWidget(60),
                           ],
                         ),
                       ),
