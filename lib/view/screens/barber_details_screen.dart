@@ -40,7 +40,7 @@ class BarberDetailsScreen extends GetWidget<BarberDetailsController> {
                   height: 360.sp,
                   width: double.infinity,
                   child: Stack(
-                    alignment: Alignment.topLeft,
+                    alignment: Alignment.topCenter,
                     children: [
                       Hero(
                         tag: controller.barber.image + controller.barber.name,
@@ -61,17 +61,34 @@ class BarberDetailsScreen extends GetWidget<BarberDetailsController> {
                       ),
                       Padding(
                         padding: EdgeInsets.all(10.sp),
-                        child: CircleAvatar(
-                          radius: 20.sp,
-                          backgroundColor: AppColors.white,
-                          child: InkWell(
-                            onTap: Get.back,
-                            child: Icon(
-                              Icons.keyboard_arrow_left_rounded,
-                              color: AppColors.petrol,
-                              size: 30.sp,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CircleAvatar(
+                              radius: 20.sp,
+                              backgroundColor: AppColors.white,
+                              child: InkWell(
+                                onTap: Get.back,
+                                child: Icon(
+                                  Icons.keyboard_arrow_left_rounded,
+                                  color: AppColors.petrol,
+                                  size: 30.sp,
+                                ),
+                              ),
                             ),
-                          ),
+                            CircleAvatar(
+                              radius: 20.sp,
+                              backgroundColor: AppColors.white,
+                              child: InkWell(
+                                onTap: controller.locationButtonOnClick,
+                                child: Icon(
+                                  Icons.location_on_outlined,
+                                  color: AppColors.petrol,
+                                  size: 30.sp,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -89,21 +106,77 @@ class BarberDetailsScreen extends GetWidget<BarberDetailsController> {
                       ),
                       BarberDetailsTitlesWidget(
                         AppStrings.priceText,
-                        subTitle: Text(
-                          AppStrings.priceText,
-                          style: AppFonts.fontHeavy16White.copyWith(
-                            color: AppColors.petrol,
-                          ),
-                        ),
+                        subTitle: controller.barber.prices.length < 1
+                            ? Text(AppStrings.noPricesForThatBarberText)
+                            : ListView.separated(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 10.sp,
+                                ),
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: controller.barber.prices.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  String priceName = controller.barber.prices[index][AppStrings.barberPriceNameField];
+                                  String pricePrice = controller.barber.prices[index][AppStrings.barberPricePriceField].toString() + AppStrings.spaceSign + AppStrings.eGPText;
+                                  return Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        priceName,
+                                        style: AppFonts.fontHeavy16White.copyWith(
+                                          color: AppColors.black,
+                                        ),
+                                      ),
+                                      Text(
+                                        pricePrice,
+                                        style: AppFonts.fontHeavy16White.copyWith(
+                                          color: AppColors.black,
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                                separatorBuilder: (BuildContext context, int index) {
+                                  return GapWidget(10);
+                                },
+                              ),
                       ),
                       BarberDetailsTitlesWidget(
                         AppStrings.offersText,
-                        subTitle: Text(
-                          AppStrings.offersText,
-                          style: AppFonts.fontHeavy16White.copyWith(
-                            color: AppColors.petrol,
-                          ),
-                        ),
+                        subTitle: controller.barber.offers.length < 1
+                            ? Text(AppStrings.noOffersForThatBarberText)
+                            : ListView.separated(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 10.sp,
+                                ),
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: controller.barber.offers.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  String offerName = controller.barber.offers[index][AppStrings.barberOfferNameField];
+                                  String offerPrice = controller.barber.offers[index][AppStrings.barberOfferPriceField].toString() + AppStrings.spaceSign + AppStrings.eGPText;
+                                  return Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        offerName,
+                                        style: AppFonts.fontHeavy16White.copyWith(
+                                          color: AppColors.black,
+                                        ),
+                                      ),
+                                      Text(
+                                        offerPrice,
+                                        style: AppFonts.fontHeavy16White.copyWith(
+                                          color: AppColors.black,
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                                separatorBuilder: (BuildContext context, int index) {
+                                  return GapWidget(10);
+                                },
+                              ),
                       ),
                       BarberDetailsTitlesWidget(
                         AppStrings.setDayText,

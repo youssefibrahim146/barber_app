@@ -12,15 +12,15 @@ class UserProfileController extends GetxController {
   static FirebaseFirestore firestore = FirebaseFirestore.instance;
   static FirebaseStorage firestorage = FirebaseStorage.instance;
   static String currentUserEmail = fireauth.currentUser!.email!;
-  static FirebaseAuth fireauth = FirebaseAuth.instance;
-  RxBool isDeleteAccountPasswordObscure = RxBool(true);
-  static HomeController homeControllerStatic = Get.find();
-  HomeController homeController = Get.find();
-  RxBool isOldPasswordObscure = RxBool(true);
-  RxBool isNewPasswordObscure = RxBool(true);
   RxString image = homeControllerStatic.currentUser.value.image;
   RxString phone = homeControllerStatic.currentUser.value.phone;
   RxString name = homeControllerStatic.currentUser.value.name;
+  static HomeController homeControllerStatic = Get.find();
+  static FirebaseAuth fireauth = FirebaseAuth.instance;
+  RxBool isDeleteAccountPasswordObscure = RxBool(true);
+  HomeController homeController = Get.find();
+  RxBool isOldPasswordObscure = RxBool(true);
+  RxBool isNewPasswordObscure = RxBool(true);
   RxBool isObscure = RxBool(true);
   RxBool isLoading = false.obs;
   String? newPassword;
@@ -156,48 +156,30 @@ class UserProfileController extends GetxController {
     AppDefaults.defaultBottomSheet(
       height: 400.h,
       isDismissible: true,
-      ChangePasswordBottomSheetWidgets(
-        formState: changePasswordFormState,
-        isLoading: isLoading,
-        isOldPasswordObscure: isOldPasswordObscure,
-        oldPasswordOnSaved: (value) {
-          oldPassword = value;
-        },
-        isNewPasswordObscure: isNewPasswordObscure,
-        newPasswordOnSaved: (value) {
-          newPassword = value;
-        },
-        confirmOnClick: () async {
-          isLoading.value = true;
-          FocusManager.instance.primaryFocus?.unfocus();
-          var formData = changePasswordFormState.currentState;
-          if (formData!.validate()) {
-            formData.save();
-            isLoading.value = true;
-            User? user = fireauth.currentUser;
-            try {
-              /// Authenticating to make sure that the user is logged in.
-              if (user != null) {
-                AuthCredential credential = EmailAuthProvider.credential(
-                  email: currentUserEmail,
-                  password: oldPassword!,
-                );
-                await user.reauthenticateWithCredential(credential);
-
-                /// Change current user password.
-                FirebaseAuth.instance.currentUser!.updatePassword(newPassword!);
-                Get.back();
-                AppDefaults.defaultToast(AppStrings.passwordChangedSuccessfullyToast);
-              }
-            } catch (e) {
-              isLoading.value = false;
-              AppDefaults.defaultToast(AppStrings.errorResettingPasswordToast + e.toString());
-            }
-            isLoading.value = false;
-          } else {
-            isLoading.value = false;
-          }
-        },
+      ReservationsBottomSheetWidgets(
+        [
+          ReservationModel(
+            barberImage: "https://firebasestorage.googleapis.com/v0/b/baeber-app.appspot.com/o/profileImages%2Fbarber_one_gmail_com_profile_image.jpg.jpeg?alt=media&token=b9bb15e6-28b5-47dd-9bf1-d053ae5de11b",
+            barberName: "barberName",
+            userImage: "userImage",
+            userName: "userName",
+            date: DateTime.now(),
+          ),
+          ReservationModel(
+            barberImage: "https://firebasestorage.googleapis.com/v0/b/baeber-app.appspot.com/o/profileImages%2Fbarber_one_gmail_com_profile_image.jpg.jpeg?alt=media&token=b9bb15e6-28b5-47dd-9bf1-d053ae5de11b",
+            barberName: "barberName",
+            userImage: "userImage",
+            userName: "userName",
+            date: DateTime.now(),
+          ),
+          ReservationModel(
+            barberImage: "https://firebasestorage.googleapis.com/v0/b/baeber-app.appspot.com/o/profileImages%2Fbarber_one_gmail_com_profile_image.jpg.jpeg?alt=media&token=b9bb15e6-28b5-47dd-9bf1-d053ae5de11b",
+            barberName: "barberName",
+            userImage: "userImage",
+            userName: "userName",
+            date: DateTime.now(),
+          ),
+        ],
       ),
     );
   }

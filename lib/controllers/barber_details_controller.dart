@@ -7,4 +7,8 @@ class BarberDetailsController extends GetxController {
   void phoneButtonOnClick() {
     launch(AppStrings.telText + barber.phone);
   }
+
+  void locationButtonOnClick() {
+    launch(barber.location);
+  }
 }

@@ -15,14 +15,22 @@ class AppStrings {
   static const String homeRoute = "/home";
 
   /// Firebase Collection, Document & Field Names
+  static const String barberSetDayHourIsAvailableField = "barberSetDayHourIsAvailable";
   static const String receiverProfileImageField = "receiverProfileImage";
   static const String senderProfileImageField = "senderProfileImage";
+  static const String barberSetDayHoursField = "barberSetDayHours";
+  static const String barberPricePriceField = "barberPricePrice";
+  static const String barberOfferPriceField = "barberOfferPrice";
+  static const String barberPriceNameField = "barberPriceName";
+  static const String barberOfferNameField = "barberOfferName";
+  static const String barberSetDayDayField = "barberSetDayDay";
   static const String profileImageField = "profileImage";
   static const String reservationsField = "reservations";
   static const String chatRoomsCollection = "chatRooms";
   static const String descriptionField = "description";
   static const String chatRoomIdsField = "chatRoomIds";
   static const String senderEmailField = "senderEmail";
+  static const String barberImageField = "barberImage";
   static const String messagesCollection = "messages";
   static const String authUsersDocument = "authUsers";
   static const String barberNameField = "barberName";
@@ -40,6 +48,9 @@ class AppStrings {
   static const String postsCollection = "posts";
   static const String usersCollection = "users";
   static const String messageField = "message";
+  static const String pricesField = "prices";
+  static const String offersField = "offers";
+  static const String setDayField = "setDay";
   static const String emailsField = "emails";
   static const String imagesField = "images";
   static const String isSeenField = "isSeen";
@@ -65,6 +76,9 @@ class AppStrings {
   static const String profileImagesBase = "profileImages/";
   static const String postsImagesBase = "postsImages/";
   static const String imagesTypeBase = "image/jpg";
+
+  /// Formats
+  static const String dateFormat = 'dd/MM/yyyy - hh:mm a';
 
   /// Signs
   static const String closingSquareBracketSign = "]";
@@ -163,6 +177,8 @@ class AppStrings {
   /// Other
   static const String deleteAccountMessageText = "Please confirm your password to make sure that you want to delete your account.";
   static const String logoutMessageText = "Are you sure that you want to logout?";
+  static const String noPricesForThatBarberText = "No prices for that barber";
+  static const String noOffersForThatBarberText = "No offers for that barber";
   static const String noBarbersFoundText = "No barbers found for that search";
   static const String signupWithPhoneNumberText = "Signup with Phone Number";
   static const String loginWithPhoneNumberText = "Login with Phone Number";
@@ -173,6 +189,7 @@ class AppStrings {
   static const String alreadyUserText = "Already a User?";
   static const String notAvailableText = "Not Available";
   static const String reservationsText = "Reservations";
+  static const String searchHereText = "Search here...";
   static const String editProfileText = "Edit Profile";
   static const String phoneNumberText = "Phone Number";
   static const String newPasswordText = "New password";
@@ -198,4 +215,5 @@ class AppStrings {
   static const String emailText = "Email";
   static const String moreText = "More";
   static const String telText = "tel: ";
+  static const String eGPText = "EGP";
 }

@@ -1,4 +1,3 @@
-import 'package:barber/constants/app_bindings%20.dart';
 import 'package:barber/constants/app_imports.dart';
 
 void main() async {

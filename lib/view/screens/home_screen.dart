@@ -25,7 +25,7 @@ class HomeScreen extends GetWidget<HomeController> {
               children: [
                 GapWidget(25),
                 InkWell(
-                  onTap: controller.appBarOnClick,
+                  onTap: controller.profileOnClick,
                   child: Hero(
                     tag: AppStrings.appBarTag,
                     child: Card(
@@ -50,10 +50,11 @@ class HomeScreen extends GetWidget<HomeController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: 250.w,
+                      height: 45.h,
+                      width: 275.w,
                       child: TextField(
                         controller: controller.searchController,
-                        cursorColor: AppColors.petrol,
+                        cursorColor: AppColors.white,
                         onTapOutside: (PointerDownEvent event) {
                           FocusManager.instance.primaryFocus?.unfocus();
                         },
@@ -70,7 +71,7 @@ class HomeScreen extends GetWidget<HomeController> {
                               color: AppColors.white,
                             ),
                           ),
-                          hintText: "Search here...",
+                          hintText: AppStrings.searchHereText,
                           hintStyle: AppFonts.fontLight14grey.copyWith(
                             color: AppColors.white,
                           ),
@@ -101,13 +102,16 @@ class HomeScreen extends GetWidget<HomeController> {
                         ),
                       ),
                     ),
-                    CircleAvatar(
-                      radius: 25,
-                      backgroundColor: AppColors.petrol,
-                      child: Icon(
-                        Icons.location_on_outlined,
-                        color: AppColors.white,
-                        size: 25.sp,
+                    InkWell(
+                      onTap: controller.profileOnClick,
+                      child: CircleAvatar(
+                        radius: 22.5.sp,
+                        backgroundColor: AppColors.petrol,
+                        child: Icon(
+                          Icons.person,
+                          color: AppColors.white,
+                          size: 25.sp,
+                        ),
                       ),
                     ),
                   ],
