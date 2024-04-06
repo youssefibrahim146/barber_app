@@ -153,35 +153,19 @@ class UserProfileController extends GetxController {
 
   /// To display current user reservations.
   void reservationsButtonOnClick() {
-    AppDefaults.defaultBottomSheet(
-      height: 400.h,
-      isDismissible: true,
-      ReservationsBottomSheetWidgets(
-        [
-          ReservationModel(
-            barberImage: "https://firebasestorage.googleapis.com/v0/b/baeber-app.appspot.com/o/profileImages%2Fbarber_one_gmail_com_profile_image.jpg.jpeg?alt=media&token=b9bb15e6-28b5-47dd-9bf1-d053ae5de11b",
-            barberName: "barberName",
-            userImage: "userImage",
-            userName: "userName",
-            date: DateTime.now(),
-          ),
-          ReservationModel(
-            barberImage: "https://firebasestorage.googleapis.com/v0/b/baeber-app.appspot.com/o/profileImages%2Fbarber_one_gmail_com_profile_image.jpg.jpeg?alt=media&token=b9bb15e6-28b5-47dd-9bf1-d053ae5de11b",
-            barberName: "barberName",
-            userImage: "userImage",
-            userName: "userName",
-            date: DateTime.now(),
-          ),
-          ReservationModel(
-            barberImage: "https://firebasestorage.googleapis.com/v0/b/baeber-app.appspot.com/o/profileImages%2Fbarber_one_gmail_com_profile_image.jpg.jpeg?alt=media&token=b9bb15e6-28b5-47dd-9bf1-d053ae5de11b",
-            barberName: "barberName",
-            userImage: "userImage",
-            userName: "userName",
-            date: DateTime.now(),
-          ),
-        ],
-      ),
-    );
+    homeController.currentUser.value.reservations.isNull || homeController.currentUser.value.reservations.isEmpty
+        ? AppDefaults.defaultToast(AppStrings.noReservationsYetToast)
+        : AppDefaults.defaultBottomSheet(
+            height: 400.h,
+            isDismissible: true,
+            ReservationsBottomSheetWidgets(
+              homeController.currentUser.value.reservations.firstOrNull[AppStrings.barberNameField],
+              locationOnClick: () => launch(AppStrings.telText + homeController.currentUser.value.reservations.firstOrNull[AppStrings.barberLocationField]),
+              phoneOnClick: () => launch(AppStrings.telText + homeController.currentUser.value.reservations.firstOrNull[AppStrings.barberPhoneField]),
+              barberImage: homeController.currentUser.value.reservations.firstOrNull[AppStrings.barberImageField],
+              date: homeController.currentUser.value.reservations.firstOrNull[AppStrings.dateField],
+            ),
+          );
   }
 
   /// To delete all the current user data and delete his account from fireauth.
@@ -245,7 +229,7 @@ class UserProfileController extends GetxController {
         AppStrings.logoutMessageText,
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: AppColors.petrol,
+          color: AppColors.white,
           fontSize: 24.sp,
         ),
       ),

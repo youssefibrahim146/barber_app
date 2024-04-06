@@ -9,11 +9,11 @@ class AppDefaults {
     required VoidCallback secondButtonClick,
   }) {
     Get.defaultDialog(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.petrol,
       barrierDismissible: false,
       title: title,
       titleStyle: TextStyle(
-        color: AppColors.petrol,
+        color: AppColors.white,
         fontSize: 24.sp,
         fontWeight: FontWeight.bold,
       ),
@@ -31,7 +31,7 @@ class AppDefaults {
             children: [
               DialogButtonWidget(
                 text: AppStrings.cancelText,
-                color: AppColors.petrol,
+                color: AppColors.white,
                 onTap: () => Get.back(),
               ),
               Obx(
@@ -40,6 +40,7 @@ class AppDefaults {
                         text: secondButtonText,
                         color: AppColors.red,
                         onTap: secondButtonClick,
+                        white: AppColors.white,
                       )
                     : CircleAvatar(
                         radius: 20.sp,
@@ -60,11 +61,11 @@ class AppDefaults {
 
   static defaultDialogWithOut(title, subTitle, {bool? dismissible}) {
     Get.defaultDialog(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.petrol,
       barrierDismissible: dismissible ?? true,
       title: title,
       titleStyle: TextStyle(
-        color: AppColors.petrol,
+        color: AppColors.white,
         fontSize: 24.sp,
         fontWeight: FontWeight.bold,
       ),
@@ -80,7 +81,7 @@ class AppDefaults {
               subTitle,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: AppColors.petrol,
+                color: AppColors.white,
                 fontSize: 20.sp,
               ),
             ),
@@ -92,7 +93,7 @@ class AppDefaults {
 
   static defaultBottomSheet(List<Widget> widgets, {double? height, bool? isDismissible}) {
     Get.bottomSheet(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.petrol,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(15.sp)),
       ),

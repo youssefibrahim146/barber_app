@@ -11,7 +11,9 @@ List<Widget> DeleteAccountBottomSheetWidgets({
     Text(
       AppStrings.deleteAccountText,
       textAlign: TextAlign.center,
-      style: AppFonts.fontHeavy20Petrol,
+      style: AppFonts.fontHeavy20Petrol.copyWith(
+        color: AppColors.white,
+      ),
     ),
     GapWidget(25),
     Column(
@@ -21,6 +23,7 @@ List<Widget> DeleteAccountBottomSheetWidgets({
           child: Obx(
             () {
               return TextFormFieldWidget(
+                color: AppColors.white,
                 onSaved: passwordOnSaved,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -58,7 +61,7 @@ List<Widget> DeleteAccountBottomSheetWidgets({
             height: 40.sp,
             width: 100.sp,
             decoration: BoxDecoration(
-              color: AppColors.petrol,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(15.sp),
             ),
             child: Text(
@@ -66,7 +69,7 @@ List<Widget> DeleteAccountBottomSheetWidgets({
               textAlign: TextAlign.center,
               maxLines: 1,
               style: TextStyle(
-                color: AppColors.white,
+                color: AppColors.petrol,
                 fontSize: 16.sp,
               ),
             ),

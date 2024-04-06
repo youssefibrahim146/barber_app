@@ -67,7 +67,7 @@ class UserProfileScreen extends GetWidget<UserProfileController> {
                   onClick: controller.changePasswordButtonOnClick,
                 ),
                 EditProfileMainWidget(
-                  AppStrings.reservationsText,
+                  AppStrings.reservationText,
                   icon: Icons.checklist_outlined,
                   onClick: controller.reservationsButtonOnClick,
                 ),

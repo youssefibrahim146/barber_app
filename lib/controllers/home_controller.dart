@@ -66,7 +66,7 @@ class HomeController extends GetxController {
       QuerySnapshot<Map<String, dynamic>> querySnapshot = await FirebaseFirestore.instance.collection(AppStrings.barbersCollection).get();
       for (QueryDocumentSnapshot<Map<String, dynamic>> docSnapshot in querySnapshot.docs) {
         Map<String, dynamic> data = docSnapshot.data();
-        BarberModel barber = BarberModel.fromMap(data);
+        BarberModel barber = BarberModel.fromMap(data, docSnapshot.id);
         barbers.add(barber);
         allBarbers = barbers;
       }
@@ -81,6 +81,6 @@ class HomeController extends GetxController {
   }
 
   void barberOnClick(BarberModel barber) {
-    Get.toNamed(AppStrings.barberDetailsRoute, arguments: barber);
+    Get.offNamed(AppStrings.barberDetailsRoute, arguments: barber);
   }
 }
