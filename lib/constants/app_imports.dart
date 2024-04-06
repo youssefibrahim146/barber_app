@@ -52,3 +52,4 @@ export 'package:get/get.dart';
 export 'package:image_picker/image_picker.dart';
 export 'package:internet_connection_checker/internet_connection_checker.dart';
 export 'package:shimmer/shimmer.dart';
+export 'package:url_launcher/url_launcher.dart';

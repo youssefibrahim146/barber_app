@@ -71,7 +71,10 @@ class TextFormFieldWidget extends StatelessWidget {
           onSaved: onSaved,
           onTap: onClick,
           minLines: 1,
-          style: style ?? AppFonts.fontHeavy18grey.copyWith(color: AppColors.petrol),
+          style: style ??
+              AppFonts.fontHeavy18grey.copyWith(
+                color: color ?? AppColors.petrol,
+              ),
           onTapOutside: (PointerDownEvent event) {
             FocusManager.instance.primaryFocus?.unfocus();
           },
@@ -85,10 +88,22 @@ class TextFormFieldWidget extends StatelessWidget {
             labelStyle: TextStyle(
               color: color ?? AppColors.petrol,
             ),
-            border: AppDefaults.defaultOutlineInputBorder(25),
-            disabledBorder: AppDefaults.defaultOutlineInputBorder(25),
-            enabledBorder: AppDefaults.defaultOutlineInputBorder(25),
-            focusedBorder: AppDefaults.defaultOutlineInputBorder(25),
+            border: AppDefaults.defaultOutlineInputBorder(
+              25,
+              color: color ?? AppColors.petrol,
+            ),
+            disabledBorder: AppDefaults.defaultOutlineInputBorder(
+              25,
+              color: color ?? AppColors.petrol,
+            ),
+            enabledBorder: AppDefaults.defaultOutlineInputBorder(
+              25,
+              color: color ?? AppColors.petrol,
+            ),
+            focusedBorder: AppDefaults.defaultOutlineInputBorder(
+              25,
+              color: color ?? AppColors.petrol,
+            ),
             focusedErrorBorder: AppDefaults.defaultOutlineInputBorder(
               25,
               color: AppColors.red,

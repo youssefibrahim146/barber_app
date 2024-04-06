@@ -1,4 +1,5 @@
 import 'package:barber/constants/app_imports.dart';
+import 'package:intl/intl.dart';
 
 class BarberDetailsScreen extends GetWidget<BarberDetailsController> {
   const BarberDetailsScreen({super.key});
@@ -7,22 +8,6 @@ class BarberDetailsScreen extends GetWidget<BarberDetailsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.petrol,
-      floatingActionButton: Container(
-        height: 50.sp,
-        width: 50.sp,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.sp),
-          color: AppColors.petrol,
-        ),
-        child: InkWell(
-          onTap: controller.phoneButtonOnClick,
-          child: Icon(
-            Icons.phone,
-            color: AppColors.white,
-            size: 24.sp,
-          ),
-        ),
-      ),
       body: SafeArea(
         child: Container(
           height: double.infinity,
@@ -68,25 +53,42 @@ class BarberDetailsScreen extends GetWidget<BarberDetailsController> {
                               radius: 20.sp,
                               backgroundColor: AppColors.white,
                               child: InkWell(
-                                onTap: Get.back,
+                                onTap: () => Get.offNamed(AppStrings.homeRoute),
                                 child: Icon(
                                   Icons.keyboard_arrow_left_rounded,
                                   color: AppColors.petrol,
-                                  size: 30.sp,
+                                  size: 24.sp,
                                 ),
                               ),
                             ),
-                            CircleAvatar(
-                              radius: 20.sp,
-                              backgroundColor: AppColors.white,
-                              child: InkWell(
-                                onTap: controller.locationButtonOnClick,
-                                child: Icon(
-                                  Icons.location_on_outlined,
-                                  color: AppColors.petrol,
-                                  size: 30.sp,
+                            Row(
+                              children: [
+                                CircleAvatar(
+                                  radius: 20.sp,
+                                  backgroundColor: AppColors.white,
+                                  child: InkWell(
+                                    onTap: controller.locationButtonOnClick,
+                                    child: Icon(
+                                      Icons.location_on_outlined,
+                                      color: AppColors.petrol,
+                                      size: 24.sp,
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                GapWidget(10),
+                                CircleAvatar(
+                                  radius: 20.sp,
+                                  backgroundColor: AppColors.white,
+                                  child: InkWell(
+                                    onTap: controller.phoneButtonOnClick,
+                                    child: Icon(
+                                      Icons.phone,
+                                      color: AppColors.petrol,
+                                      size: 24.sp,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -180,10 +182,95 @@ class BarberDetailsScreen extends GetWidget<BarberDetailsController> {
                       ),
                       BarberDetailsTitlesWidget(
                         AppStrings.setDayText,
-                        subTitle: Text(
-                          AppStrings.setDayText,
-                          style: AppFonts.fontHeavy16White.copyWith(
-                            color: AppColors.petrol,
+                        subTitle: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.sp),
+                            border: Border.all(
+                              color: AppColors.petrol,
+                            ),
+                          ),
+                          padding: EdgeInsets.all(10.sp),
+                          child: Column(
+                            children: [
+                              GridView.builder(
+                                itemCount: controller.getFirstSevenDaysInCurrentMonth().length,
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.sp),
+                                      border: Border.all(
+                                        color: AppColors.black,
+                                      ),
+                                    ),
+                                    child: Text(
+                                      controller.getFirstSevenDaysInCurrentMonth()[index],
+                                      style: AppFonts.fontHeavy17black.copyWith(
+                                        fontSize: 14.sp,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 7,
+                                  crossAxisSpacing: 10.sp,
+                                  mainAxisSpacing: 10.sp,
+                                ),
+                              ),
+                              GapWidget(25),
+                              GridView.builder(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 5.sp,
+                                ),
+                                itemCount: controller.getDaysInCurrentMonth(),
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemBuilder: (BuildContext context, int index) {
+                                  int users = 0;
+                                  for (Map<String, dynamic> dayMap in controller.barber.setDay) {
+                                    if (dayMap[AppStrings.dateField] == (index + 1).toString() + DateFormat(AppStrings.monthYearFormat).format(controller.now)) {
+                                      users = dayMap[AppStrings.usersField].length;
+                                      break;
+                                    }
+                                  }
+                                  return InkWell(
+                                    onTap: users == 10 ? () => AppDefaults.defaultToast(AppStrings.thisDayIsFullToast) : () => controller.onDayClick((index + 1).toString()),
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: users == 0
+                                            ? AppColors.lightGrey
+                                            : users < 10 && users != 0
+                                                ? AppColors.green
+                                                : AppColors.red,
+                                        borderRadius: BorderRadius.circular(10.sp),
+                                        border: Border.all(
+                                          color: users == 0
+                                              ? AppColors.black
+                                              : users < 10 && users != 0
+                                                  ? AppColors.green
+                                                  : AppColors.red,
+                                        ),
+                                      ),
+                                      child: Text(
+                                        (index + 1).toString(),
+                                        style: AppFonts.fontHeavy17black.copyWith(
+                                          fontSize: 14.sp,
+                                          color: users == 0 ? AppColors.black : AppColors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 7,
+                                  crossAxisSpacing: 20.sp,
+                                  mainAxisSpacing: 20.sp,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),

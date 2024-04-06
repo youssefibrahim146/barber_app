@@ -3,12 +3,14 @@ import 'package:barber/constants/app_imports.dart';
 class DialogButtonWidget extends StatelessWidget {
   final String text;
   final Color color;
+  final Color? white;
   final VoidCallback onTap;
 
   const DialogButtonWidget({
     required this.text,
     required this.color,
     required this.onTap,
+    this.white,
   });
 
   @override
@@ -28,7 +30,7 @@ class DialogButtonWidget extends StatelessWidget {
           textAlign: TextAlign.center,
           maxLines: 1,
           style: TextStyle(
-            color: AppColors.white,
+            color: white ?? AppColors.petrol,
             fontSize: 16.sp,
           ),
         ),

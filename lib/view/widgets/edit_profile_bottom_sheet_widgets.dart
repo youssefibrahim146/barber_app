@@ -25,7 +25,7 @@ EditProfileWidgets({
       },
       child: CircleAvatar(
         radius: 40.sp,
-        backgroundColor: AppColors.petrol,
+        backgroundColor: AppColors.white,
         child: Stack(
           children: [
             Obx(
@@ -48,7 +48,7 @@ EditProfileWidgets({
                           width: double.infinity,
                           child: CachedNetworkImageWidget(
                             imageUrl: image!.value,
-                            placeholderColor: AppColors.white,
+                            placeholderColor: AppColors.petrol,
                           ),
                         ),
                 );
@@ -59,10 +59,10 @@ EditProfileWidgets({
               decoration: BoxDecoration(),
               child: CircleAvatar(
                 radius: 10.sp,
-                backgroundColor: AppColors.white,
+                backgroundColor: AppColors.petrol,
                 child: Icon(
                   Icons.camera_alt_rounded,
-                  color: AppColors.petrol,
+                  color: AppColors.white,
                   size: 15.sp,
                 ),
               ),
@@ -77,6 +77,7 @@ EditProfileWidgets({
       child: Column(
         children: [
           TextFormFieldWidget(
+            color: AppColors.white,
             initVal: name.value,
             onSaved: (String? newValue) {
               name.value = newValue!;
@@ -97,15 +98,16 @@ EditProfileWidgets({
           ),
           GapWidget(15),
           TextFormFieldWidget(
-            color: AppColors.transparentPetrol,
+            color: AppColors.white,
             onClick: () => AppDefaults.defaultToast(AppStrings.emailCanNotBeEditedToast),
             initVal: email,
             readOnly: true,
-            style: AppFonts.fontHeavy18grey.copyWith(color: AppColors.transparentPetrol),
+            style: AppFonts.fontHeavy18grey.copyWith(color: AppColors.lightGrey),
             prefixIcon: Icon(Icons.email_rounded),
           ),
           GapWidget(15),
           TextFormFieldWidget(
+            color: AppColors.white,
             initVal: phone.value,
             onSaved: (String? newValue) {
               phone.value = newValue!;
@@ -138,7 +140,7 @@ EditProfileWidgets({
             height: 40.sp,
             width: 100.sp,
             decoration: BoxDecoration(
-              color: AppColors.petrol,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(15.sp),
             ),
             child: Text(
@@ -146,7 +148,7 @@ EditProfileWidgets({
               textAlign: TextAlign.center,
               maxLines: 1,
               style: TextStyle(
-                color: AppColors.white,
+                color: AppColors.petrol,
                 fontSize: 16.sp,
               ),
             ),

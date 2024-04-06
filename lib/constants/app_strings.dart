@@ -24,12 +24,15 @@ class AppStrings {
   static const String barberPriceNameField = "barberPriceName";
   static const String barberOfferNameField = "barberOfferName";
   static const String barberSetDayDayField = "barberSetDayDay";
+  static const String reservationsCollection = "reservations";
+  static const String barberLocationField = "barberLocation";
   static const String profileImageField = "profileImage";
   static const String reservationsField = "reservations";
   static const String chatRoomsCollection = "chatRooms";
   static const String descriptionField = "description";
   static const String chatRoomIdsField = "chatRoomIds";
   static const String senderEmailField = "senderEmail";
+  static const String barberPhoneField = "barberPhone";
   static const String barberImageField = "barberImage";
   static const String messagesCollection = "messages";
   static const String authUsersDocument = "authUsers";
@@ -59,6 +62,7 @@ class AppStrings {
   static const String emailField = "email";
   static const String titleField = "title";
   static const String priceField = "price";
+  static const String usersField = "users";
   static const String nameField = "name";
   static const String cityField = "city";
   static const String areaField = "area";
@@ -78,7 +82,9 @@ class AppStrings {
   static const String imagesTypeBase = "image/jpg";
 
   /// Formats
-  static const String dateFormat = 'dd/MM/yyyy - hh:mm a';
+  static const String dateFormat = "dd/MM/yyyy - hh:mm a";
+  static const String monthYearFormat = "/MM/yyyy";
+  static const String dayFormat = "EE";
 
   /// Signs
   static const String closingSquareBracketSign = "]";
@@ -132,9 +138,12 @@ class AppStrings {
   static const String deletedSuccessfullyToast = "Deleted successfully.";
   static const String updatedSuccessfullyToast = "Updated successfully.";
   static const String enterValidDataToast = "Please enter a valid data.";
-  static const String emptyMessageToast = "can't send empty message.";
+  static const String successfullySetToast = "Day is successfully set.";
+  static const String emptyMessageToast = "Can't send empty message.";
+  static const String noReservationsYetToast = "No reservations yet.";
   static const String errorUploadingToast = "Error uploading: ";
   static const String imageEditToast = "Image can't be edited.";
+  static const String thisDayIsFullToast = "This day is full.";
   static const String errorDeletingToast = "Error deleting: ";
   static const String errorFetchingToast = "Error fetching: ";
   static const String errorUpdatingToast = "Error updating: ";
@@ -188,12 +197,12 @@ class AppStrings {
   static const String deleteAccountText = "Delete Account";
   static const String alreadyUserText = "Already a User?";
   static const String notAvailableText = "Not Available";
-  static const String reservationsText = "Reservations";
   static const String searchHereText = "Search here...";
   static const String editProfileText = "Edit Profile";
   static const String phoneNumberText = "Phone Number";
   static const String newPasswordText = "New password";
   static const String oldPasswordText = "Old password";
+  static const String reservationText = "Reservation";
   static const String notUserText = "Not a User yet?";
   static const String getStartedText = "Get Started";
   static const String barberNameText = "Barber Name";

@@ -13,7 +13,9 @@ List<Widget> ChangePasswordBottomSheetWidgets({
     Text(
       AppStrings.changePasswordText,
       textAlign: TextAlign.center,
-      style: AppFonts.fontHeavy20Petrol,
+      style: AppFonts.fontHeavy20Petrol.copyWith(
+        color: AppColors.white,
+      ),
     ),
     GapWidget(25),
     Form(
@@ -24,6 +26,7 @@ List<Widget> ChangePasswordBottomSheetWidgets({
             () {
               return TextFormFieldWidget(
                 onSaved: oldPasswordOnSaved,
+                color: AppColors.white,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return AppStrings.oldPasswordEmptyValidate;
@@ -51,6 +54,7 @@ List<Widget> ChangePasswordBottomSheetWidgets({
           Obx(
             () {
               return TextFormFieldWidget(
+                color: AppColors.white,
                 onSaved: newPasswordOnSaved,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -89,7 +93,7 @@ List<Widget> ChangePasswordBottomSheetWidgets({
             height: 40.sp,
             width: 100.sp,
             decoration: BoxDecoration(
-              color: AppColors.petrol,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(15.sp),
             ),
             child: Text(
@@ -97,7 +101,7 @@ List<Widget> ChangePasswordBottomSheetWidgets({
               textAlign: TextAlign.center,
               maxLines: 1,
               style: TextStyle(
-                color: AppColors.white,
+                color: AppColors.petrol,
                 fontSize: 16.sp,
               ),
             ),
