@@ -39,5 +39,9 @@ class AppBindings extends Bindings {
       () => HomeController(),
       fenix: true,
     );
+    Get.lazyPut(
+      () => AIController(),
+      fenix: true,
+    );
   }
 }

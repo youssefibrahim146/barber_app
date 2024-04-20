@@ -1,7 +1,6 @@
 import 'package:barber/constants/app_imports.dart';
 import 'package:barber/view/screens/barber_details_screen.dart';
 import 'package:barber/view/screens/phone_signup_screen.dart';
-import 'package:barber/view/screens/search_screen.dart';
 import 'package:barber/view/screens/sms_code_screen.dart';
 
 class AppRouter {
@@ -72,6 +71,14 @@ class AppRouter {
     GetPage(
       name: AppStrings.homeRoute,
       page: () => const HomeScreen(),
+      transition: Transition.noTransition,
+      transitionDuration: Duration(
+        milliseconds: 500,
+      ),
+    ),
+    GetPage(
+      name: AppStrings.aiRoute,
+      page: () => const AIScreen(),
       transition: Transition.noTransition,
       transitionDuration: Duration(
         milliseconds: 500,
