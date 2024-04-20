@@ -103,12 +103,12 @@ class HomeScreen extends GetWidget<HomeController> {
                       ),
                     ),
                     InkWell(
-                      onTap: controller.profileOnClick,
+                      onTap: controller.aiOnClick,
                       child: CircleAvatar(
                         radius: 22.5.sp,
                         backgroundColor: AppColors.petrol,
                         child: Icon(
-                          Icons.person,
+                          Icons.face_outlined,
                           color: AppColors.white,
                           size: 25.sp,
                         ),

@@ -80,6 +80,10 @@ class HomeController extends GetxController {
     Get.toNamed(AppStrings.userProfileRoute)!.then((value) => isHome = RxBool(false));
   }
 
+  void aiOnClick() {
+    Get.toNamed(AppStrings.aiRoute)!.then((value) => isHome = RxBool(false));
+  }
+
   void barberOnClick(BarberModel barber) {
     Get.offNamed(AppStrings.barberDetailsRoute, arguments: barber);
   }

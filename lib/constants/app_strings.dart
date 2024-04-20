@@ -13,6 +13,7 @@ class AppStrings {
   static const String getStartedRoute = "/";
   static const String loginRoute = "/login";
   static const String homeRoute = "/home";
+  static const String aiRoute = "/ai";
 
   /// Firebase Collection, Document & Field Names
   static const String barberSetDayHourIsAvailableField = "barberSetDayHourIsAvailable";
@@ -124,6 +125,7 @@ class AppStrings {
   static const String yourEmailNotInOurDatabaseToast = "Your email is not in our database, Try to signup with that email.";
   static const String passwordChangedSuccessfullyToast = "Password changed successfully.";
   static const String accountDeletedSuccessfullyToast = "Account deleted successfully.";
+  static const String longPressToResetTheImageToast = "Long press to reset the image.";
   static const String connectionErrorToast = "Please check your internet connection.";
   static const String selectConditionToast = "PLease select condition for your item.";
   static const String selectCategoryToast = "PLease select category for your item.";
@@ -135,10 +137,12 @@ class AppStrings {
   static const String itemAlreadyOpenedToast = "This item is already opened.";
   static const String errorCreatingNewChatToast = "Error creating new chat: ";
   static const String errorDeletingAccountToast = "Error deleting account: ";
+  static const String imageAlreadyUploadedToast = "Image already uploaded.";
   static const String deletedSuccessfullyToast = "Deleted successfully.";
   static const String updatedSuccessfullyToast = "Updated successfully.";
   static const String enterValidDataToast = "Please enter a valid data.";
   static const String successfullySetToast = "Day is successfully set.";
+  static const String restedSuccessfullyToast = "Rested successfully.";
   static const String emptyMessageToast = "Can't send empty message.";
   static const String noReservationsYetToast = "No reservations yet.";
   static const String errorUploadingToast = "Error uploading: ";
@@ -147,6 +151,7 @@ class AppStrings {
   static const String errorDeletingToast = "Error deleting: ";
   static const String errorFetchingToast = "Error fetching: ";
   static const String errorUpdatingToast = "Error updating: ";
+  static const String noImageFoundToast = "No image found.";
 
   /// Validations
   static const String oldPasswordLargerThen24Validate = "Old password can't be larger then 24 letters";
@@ -212,6 +217,7 @@ class AppStrings {
   static const String lastNameText = "Last Name";
   static const String passwordText = "Password";
   static const String welcomeText = "Welcome";
+  static const String predictText = "Predict";
   static const String confirmText = "Confirm";
   static const String setDayText = "Set Day";
   static const String logoutText = "Logout";
